@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/CEG/nrf5340_ecg/build/_sysbuild/sysbuild/images/CMakeFiles/nrf5340_ecg"
+		},
+		{
+			"file" : "D:/CEG/nrf5340_ecg/build/_sysbuild/sysbuild/images/CMakeFiles/nrf5340_ecg.rule"
+		},
+		{
+			"file" : "D:/CEG/nrf5340_ecg/build/_sysbuild/sysbuild/images/CMakeFiles/nrf5340_ecg-complete.rule"
+		},
+		{
+			"file" : "D:/CEG/nrf5340_ecg/build/_sysbuild/sysbuild/images/nrf5340_ecg-prefix/src/nrf5340_ecg-stamp/nrf5340_ecg-build.rule"
+		},
+		{
+			"file" : "D:/CEG/nrf5340_ecg/build/_sysbuild/sysbuild/images/nrf5340_ecg-prefix/src/nrf5340_ecg-stamp/nrf5340_ecg-configure.rule"
+		},
+		{
+			"file" : "D:/CEG/nrf5340_ecg/build/_sysbuild/sysbuild/images/nrf5340_ecg-prefix/src/nrf5340_ecg-stamp/nrf5340_ecg-download.rule"
+		},
+		{
+			"file" : "D:/CEG/nrf5340_ecg/build/_sysbuild/sysbuild/images/nrf5340_ecg-prefix/src/nrf5340_ecg-stamp/nrf5340_ecg-install.rule"
+		},
+		{
+			"file" : "D:/CEG/nrf5340_ecg/build/_sysbuild/sysbuild/images/nrf5340_ecg-prefix/src/nrf5340_ecg-stamp/nrf5340_ecg-mkdir.rule"
+		},
+		{
+			"file" : "D:/CEG/nrf5340_ecg/build/_sysbuild/sysbuild/images/nrf5340_ecg-prefix/src/nrf5340_ecg-stamp/nrf5340_ecg-patch.rule"
+		},
+		{
+			"file" : "D:/CEG/nrf5340_ecg/build/_sysbuild/sysbuild/images/nrf5340_ecg-prefix/src/nrf5340_ecg-stamp/nrf5340_ecg-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"nrf5340_ecg"
+		],
+		"name" : "nrf5340_ecg"
+	}
+}

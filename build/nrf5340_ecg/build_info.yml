@@ -1,0 +1,60 @@
+cmake:
+  application:
+    configuration-dir: 'D:/CEG/nrf5340_ecg'
+    source-dir: 'D:/CEG/nrf5340_ecg'
+  board:
+    name: 'nrf5340dk'
+    path:
+     - 'C:/ncs/v3.1.1/zephyr/boards/nordic/nrf5340dk'
+    qualifiers: 'nrf5340/cpuapp/ns'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - 'C:/ncs/v3.1.1/nrf/dts/bindings'
+     - 'C:/ncs/v3.1.1/zephyr/dts/bindings'
+    files:
+     - 'C:/ncs/v3.1.1/zephyr/boards/nordic/nrf5340dk/nrf5340dk_nrf5340_cpuapp_ns.dts'
+     - 'D:/CEG/nrf5340_ecg/boards/nrf5340dk_nrf5340_cpuapp_ns.overlay'
+    include-dirs:
+     - 'C:/ncs/v3.1.1/nrf/include'
+     - 'C:/ncs/v3.1.1/nrf/dts/common'
+     - 'C:/ncs/v3.1.1/nrf/dts/riscv'
+     - 'C:/ncs/v3.1.1/nrf/dts/arm'
+     - 'C:/ncs/v3.1.1/nrf/dts'
+     - 'D:/CEG/nrf5340_ecg/include'
+     - 'C:/ncs/v3.1.1/zephyr/include'
+     - 'C:/ncs/v3.1.1/zephyr/include/zephyr'
+     - 'C:/ncs/v3.1.1/zephyr/dts/common'
+     - 'C:/ncs/v3.1.1/zephyr/dts/vendor'
+     - 'C:/ncs/v3.1.1/zephyr/dts/rx'
+     - 'C:/ncs/v3.1.1/zephyr/dts/x86'
+     - 'C:/ncs/v3.1.1/zephyr/dts/xtensa'
+     - 'C:/ncs/v3.1.1/zephyr/dts/sparc'
+     - 'C:/ncs/v3.1.1/zephyr/dts/riscv'
+     - 'C:/ncs/v3.1.1/zephyr/dts/posix'
+     - 'C:/ncs/v3.1.1/zephyr/dts/arm64'
+     - 'C:/ncs/v3.1.1/zephyr/dts/arm'
+     - 'C:/ncs/v3.1.1/zephyr/dts/arc'
+     - 'C:/ncs/v3.1.1/zephyr/dts'
+    user-files:
+     - 'D:/CEG/nrf5340_ecg/boards/nrf5340dk_nrf5340_cpuapp_ns.overlay'
+  images:
+   - name: 'tfm'
+     source-dir: 'C:/ncs/v3.1.1/modules/tee/tf-m/trusted-firmware-m'
+  kconfig:
+    files:
+     - 'C:/ncs/v3.1.1/zephyr/boards/nordic/nrf5340dk/nrf5340dk_nrf5340_cpuapp_ns_defconfig'
+     - 'D:/CEG/nrf5340_ecg/prj.conf'
+     - 'D:/CEG/nrf5340_ecg/build/nrf5340_ecg/zephyr/.config.sysbuild'
+    user-files:
+     - 'D:/CEG/nrf5340_ecg/prj.conf'
+  toolchain:
+    name: 'zephyr'
+    path: 'C:/ncs/toolchains/c1a76fddb2/opt/zephyr-sdk'
+  vendor-specific:
+    nordic:
+      svdfile: 'C:/ncs/v3.1.1/modules/hal/nordic/nrfx/mdk/nrf5340_application.svd'
+  zephyr:
+    version: '4.1.99'
+    zephyr-base: 'C:/ncs/v3.1.1/zephyr'
+version: '0.1.0'
