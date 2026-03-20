@@ -1,79 +1,186 @@
+/**
+ * @file main.c
+ * @brief NRF5340 ECG应用主程序
+ * 
+ * 架构：
+ * UART线程接收 → ECG缓冲队列 → 处理线程 → 特征提取 → 30s完整性判断 → 蓝牙发送
+ */
+
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
-#include "spi_comm.h"
-#include "feature_extraction.h"
 #include <zephyr/sys/printk.h>
-LOG_MODULE_REGISTER(app, LOG_LEVEL_INF);
-static feature_extraction_t feature_eng;
-spi_frame_t frame;
-/* 你的板卡 SPI 采样率（来自数据源，即树莓派）*/
-#define ECG_FS 300         /* 或实际采样率，请与你树莓派发送一致 */
-#define WINDOW_SEC 30      /* 每 30 秒做一次特征全集 */
+#include <errno.h>
 
+#include "uart_sample_rx.h"
+#include "ecg_buffer.h"
+#include "ecg_processing.h"
+#include "feature_extraction.h"
+#include "ble_output.h"
+#include "models/model_runtime.h"
+
+LOG_MODULE_REGISTER(app, LOG_LEVEL_INF);
+
+/* ===== 配置常量 ===== */
+#define ECG_FS              300
+#define WINDOW_SEC          30
+#define ECG_BUFFER_SIZE     50
+#define BLE_QUEUE_SIZE      10
+#define ENABLE_BLE_OUTPUT   0
+
+/* 当前默认模型: 先接入 Fnn_gboosting float，其他模型保留接口 */
+#define ACTIVE_MODEL        ECG_MODEL_FNN_GBOOST_FLOAT
+
+/* ===== 全局对象 ===== */
+static ecg_buffer_t ecg_buffer;
+static window_manager_t window_mgr;
+static feature_extraction_t feature_eng;
+static ecg_model_runtime_t model_runtime;
+
+/**
+ * @brief 主程序初始化
+ */
 int main(void)
 {
-    LOG_INF("APP start");
-    printk("=== MAIN START ===\n");
-    if (spi_comm_init() != 0) {
-        LOG_ERR("Failed to init SPI");
-        return -1;
+    printk("=== NRF5340 ECG Application Start ===\n");
+    printk("\n\n========================================\n");
+    printk("   NRF5340 ECG Async Processing Demo\n");
+    printk("   Sam: %u Hz, Window: %u sec\n", ECG_FS, WINDOW_SEC);
+    printk("========================================\n\n");
+
+    printk("Initializing ECG buffer...");
+    int ret = ecg_buffer_init(&ecg_buffer, ECG_BUFFER_SIZE);
+    if (ret != 0) {
+        printk("Failed to initialize ECG buffer: %d\n", ret);
+        return ret;
     }
+
+    printk("Initializing UART sample receive...");
+    ret = uart_sample_rx_init_async(&ecg_buffer);
+    if (ret != 0) {
+        printk("Failed to initialize UART sample RX: %d\n", ret);
+        return ret;
+    }
+
+    printk("Initializing window manager...\n");
+    window_manager_init(&window_mgr, ECG_FS, WINDOW_SEC);
+
+    printk("Initializing feature extraction engine...\n");
     feature_extraction_init(&feature_eng, ECG_FS, WINDOW_SEC);
-    LOG_INF("Feature engine initialized");
+
+    ret = ecg_model_runtime_init(&model_runtime, ACTIVE_MODEL);
+    if (ret != 0) {
+        printk("Failed to initialize model runtime: %d\n", ret);
+        return ret;
+    }
+
+    printk("Model runtime initialized: %s\n",
+           ecg_model_runtime_name(model_runtime.active_model));
+
+#if ENABLE_BLE_OUTPUT
+    printk("Initializing BLE output...\n");
+    ret = ble_output_init(BLE_QUEUE_SIZE);
+    if (ret != 0) {
+        printk("Failed to initialize BLE output: %d\n", ret);
+        return ret;
+    }
+#else
+    printk("BLE output disabled (local inference print mode)\n");
+#endif
+
+    printk("All modules initialized successfully!\n");
+    printk("Starting ECG processing loop...\n");
+
+    ecg_sample_t sample;
+    window_integrity_t integrity;
+
+
     while (1) {
-        printk("=== LOOP START ===\n");
-        int ret = spi_comm_read_frame(&frame);
-       if (ret != 0) {
-            /* 忽略解析错误、校验错误、缺帧等 */
-            k_sleep(K_MSEC(1));
-            continue;
-        }
-            /* 恢复 16-bit ECG sample（假设 data_h high byte, data_l low byte，小端） */
-        int16_t ecg = (int16_t)((frame.data_h << 8) | frame.data_l);
-        printk("Received ECG sample: %d (id=%d type=%d)", ecg, frame.id, frame.type);
-        // int ecg=1;
-        
-        /* --------------------------
-         *   2. push sample into feature engine
-         * -------------------------- */
-        bool window_done = feature_extraction_push(&feature_eng, ecg);
-        //  k_sleep(K_MSEC(1000));
-        if (!window_done) {
-            /* 仍在收集 30 秒数据 */
-            printk("Collecting feature window...\n");
+        int ret = ecg_buffer_pop(&ecg_buffer, &sample);
+        if (ret == -ENODATA) {
+            k_sleep(K_USEC(100));
             continue;
         }
 
-        /* --------------------------
-         *   3. 30 秒窗口数据已满 → 立即提取 6 个特征
-         * -------------------------- */
-        double feats[6];
-        feature_extraction_get(feats, &feature_eng);
+        bool feature_done = feature_extraction_push(&feature_eng, sample.ecg_data);
+        bool window_done = window_manager_push(&window_mgr, sample.seq_num, &integrity);
 
-        printk("=== 30s features ready ===\n");
-        printk("Kurtosis: %.6f %.6f %.6f\n", feats[0], feats[1], feats[2]);
-        printk("Skewness: %.6f %.6f %.6f\n", feats[3], feats[4], feats[5]);
+        if (!feature_done || !window_done) {
+            continue;
+        }
 
-        /* --------------------------
-         *   4. （可选）标准化 features
-         * --------------------------
-         * feats[i] = (feats[i] - mean_all[i]) / std_all[i];
-         * 注意：mean_all / std_all 必须来自 MATLAB 训练集
-         */
+        if (!feature_eng.ready) {
+            printk("Window completed but feature extraction not ready!\n");
+            printk("Feature state: buffer_pos=%u/9000\n", feature_eng.buffer_pos);
+            feature_extraction_reset(&feature_eng);
+            window_manager_reset(&window_mgr);
+            continue;
+        }
 
-        /* --------------------------
-         *   5. 推理模型（C实现的决策树 / SVM / boosting）
-         * --------------------------
-         * int result = model_predict(feats);
-         * printk("Prediction result = %d", result);
-         */
+        printk("\n===============================================\n");
+        printk("30s window completed with valid features!\n");
+        printk("===============================================\n");
 
-        /* --------------------------
-         *   6. reset for next 30s window
-         * -------------------------- */
+        double features[6];
+        feature_extraction_get(features, &feature_eng);
+
+        printk("Window integrity: %.0f%% (%u/%u samples)\n",
+               (double)integrity.integrity_percent,
+               integrity.received_samples,
+               integrity.expected_samples);
+
+        printk("Features - Kurtosis: [%.4f, %.4f, %.4f]\n",
+               features[0], features[1], features[2]);
+
+        printk("Features - Skewness: [%.4f, %.4f, %.4f]\n",
+               features[3], features[4], features[5]);
+
+        /* 先快照并重置窗口，避免推理/发送占用下一轮采样窗口 */
+        window_integrity_t integrity_snapshot = integrity;
         feature_extraction_reset(&feature_eng);
-        printk("Feature window reset\n");
+        window_manager_reset(&window_mgr);
+
+        ecg_model_result_t infer_out = {0};
+        ret = ecg_model_runtime_infer(&model_runtime, features, &infer_out);
+        if (ret == -ENOTSUP) {
+            printk("Inference backend not ready: %s\n",
+                   ecg_model_runtime_name(model_runtime.active_model));
+        } else if (ret != 0) {
+            printk("Inference failed: %d\n", ret);
+        } else {
+            printk("Inference result: model=%s, label=%d, score=%.5f\n",
+                   ecg_model_runtime_name(model_runtime.active_model),
+                   infer_out.label,
+                   (double)infer_out.score);
+        }
+
+        if (ret == 0 && integrity_snapshot.is_valid && infer_out.label == 1) {
+            printk("Window VALID + model VALID\n");
+#if ENABLE_BLE_OUTPUT
+            ecg_result_t result = {
+                .timestamp_ms = k_uptime_get_32(),
+                .kurtosis = {features[0], features[1], features[2]},
+                .skewness = {features[3], features[4], features[5]},
+                .integrity = integrity_snapshot,
+                .model_output = infer_out.label,
+                .model_confidence = infer_out.score,
+                .status = integrity_snapshot.is_valid ? 0 : 2,
+            };
+
+            ret = ble_output_queue_result(&result);
+            if (ret != 0) {
+                printk("Failed to queue result to BLE: %d\n", ret);
+            }
+#endif
+        } else {
+            printk("Window not sent: integrity=%u%%, label=%d, infer_ret=%d\n",
+                   integrity_snapshot.integrity_percent,
+                   (ret == 0) ? infer_out.label : -1,
+                   ret);
+        }
+
+        printk("Ready for next 30s window\n");
     }
 
     return 0;
 }
+
