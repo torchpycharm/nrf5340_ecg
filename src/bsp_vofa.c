@@ -32,7 +32,6 @@ int TO_Vofa_DATA(void)
 	 * avoid blocking indefinitely. In this Zephyr/NCS version `uart_tx`
 	 * expects an `int32_t` timeout in milliseconds, so pass 200 directly.
 	 */
-	//此处后续改为中断形式，不要使用该阻塞发送的函数
 	if (uart_tx(uart_dev, transform_data.cdata, NOFCHANEL * 4 + 4, 200) == 0) {
 		return 1;
 	}

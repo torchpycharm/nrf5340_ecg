@@ -151,6 +151,7 @@ int main(void)
                    ecg_model_runtime_name(model_runtime.active_model),
                    infer_out.label,
                    (double)infer_out.score);
+            printk("Model label output: %d\n", infer_out.label);
         }
 
         if (ret == 0 && integrity_snapshot.is_valid && infer_out.label == 1) {
