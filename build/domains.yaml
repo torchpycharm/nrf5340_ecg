@@ -1,7 +1,0 @@
-default: nrf5340_ecg
-build_dir: D:/CEG/nrf5340_ecg/build
-domains:
-  - name: nrf5340_ecg
-    build_dir: D:/CEG/nrf5340_ecg/build/nrf5340_ecg
-flash_order:
-  - nrf5340_ecg
