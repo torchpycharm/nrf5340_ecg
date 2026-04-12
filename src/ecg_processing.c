@@ -4,6 +4,7 @@
  */
 
 #include "ecg_processing.h"
+#include <errno.h>
 #include <string.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
@@ -27,6 +28,17 @@ void window_manager_init(window_manager_t *mgr, uint32_t fs, uint32_t window_sec
 
     LOG_INF("Window manager initialized: fs=%u, window=%us, expected=%u samples",
            fs, window_sec, mgr->expected_samples);
+}
+
+int window_manager_set_expected_samples(window_manager_t *mgr, uint32_t expected_samples)
+{
+    if (!mgr || expected_samples == 0) {
+        return -EINVAL;
+    }
+
+    mgr->expected_samples = expected_samples;
+    mgr->window_sec = (mgr->fs > 0) ? (expected_samples / mgr->fs) : 0;
+    return 0;
 }
 
 /**
@@ -58,7 +70,8 @@ bool window_manager_push(window_manager_t *mgr, uint32_t seq_num,
     mgr->sample_count++;
 
     /* 检查是否完成了30秒窗口 */
-    bool window_done = (mgr->sample_count >= mgr->expected_samples);
+    bool window_done = (mgr->expected_samples > 0) &&
+                       (mgr->sample_count >= mgr->expected_samples);
 
     if (window_done && integrity) {
         uint32_t window_end_time = k_uptime_get_32();
@@ -67,7 +80,9 @@ bool window_manager_push(window_manager_t *mgr, uint32_t seq_num,
         /* 填充完整性信息 */
         integrity->expected_samples = mgr->expected_samples;
         integrity->received_samples = mgr->sample_count;
-        integrity->missing_samples = mgr->expected_samples - mgr->sample_count;
+        integrity->missing_samples = (mgr->sample_count >= mgr->expected_samples) ?
+                         0 :
+                         (mgr->expected_samples - mgr->sample_count);
         integrity->seq_gaps = mgr->seq_gaps;
         integrity->window_start_time_ms = mgr->window_start_time_ms;
         integrity->window_end_time_ms = window_end_time;
@@ -128,7 +143,9 @@ void window_manager_get_integrity(const window_manager_t *mgr,
 
     integrity->expected_samples = mgr->expected_samples;
     integrity->received_samples = mgr->sample_count;
-    integrity->missing_samples = mgr->expected_samples - mgr->sample_count;
+    integrity->missing_samples = (mgr->sample_count >= mgr->expected_samples) ?
+                                 0 :
+                                 (mgr->expected_samples - mgr->sample_count);
     integrity->seq_gaps = mgr->seq_gaps;
     integrity->window_start_time_ms = mgr->window_start_time_ms;
     integrity->window_end_time_ms = current_time;

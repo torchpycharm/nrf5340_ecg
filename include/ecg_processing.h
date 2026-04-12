@@ -79,6 +79,14 @@ typedef struct {
 void window_manager_init(window_manager_t *mgr, uint32_t fs, uint32_t window_sec);
 
 /**
+ * @brief 更新当前窗口期望样本数（用于动态窗口）
+ * @param mgr 窗口管理器
+ * @param expected_samples 该窗口应接收样本数
+ * @return 0成功，<0失败
+ */
+int window_manager_set_expected_samples(window_manager_t *mgr, uint32_t expected_samples);
+
+/**
  * @brief 处理一个ECG样本，返回是否完成了一个窗口
  * @param mgr 窗口管理器
  * @param seq_num 序列号
