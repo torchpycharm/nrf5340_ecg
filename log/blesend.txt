@@ -1,0 +1,900 @@
+[WORK] === Processing snapshot file=26 (collected=27) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=26 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=26
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=27 processed=27 skipped=0
+[RAW] Header file=27 samples=10518
+[00:12:52.767,395] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:12:52.771,331] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=27 samples=10518
+[00:12:52.811,614] <inf> ble_output: BLE window queued: file=26 samples=9000 integrity=100 label=0
+[00:12:52.828,155] <inf> ble_output: BLE START sent: file=26 samples=9000
+[00:12:53.343,353] <inf> ble_output: BLE DATA progress: file=26 600/9000
+[00:12:53.865,173] <inf> ble_output: BLE DATA progress: file=26 1200/9000
+[00:12:54.386,810] <inf> ble_output: BLE DATA progress: file=26 1800/9000
+[00:12:54.907,440] <inf> ble_output: BLE DATA progress: file=26 2400/9000
+[00:12:55.428,894] <inf> ble_output: BLE DATA progress: file=26 3000/9000
+[00:12:55.951,324] <inf> ble_output: BLE DATA progress: file=26 3600/9000
+[00:12:56.472,930] <inf> ble_output: BLE DATA progress: file=26 4200/9000
+[00:12:56.995,086] <inf> ble_output: BLE DATA progress: file=26 4800/9000
+[00:12:57.516,571] <inf> ble_output: BLE DATA progress: file=26 5400/9000
+[00:12:58.038,391] <inf> ble_output: BLE DATA progress: file=26 6000/9000
+[00:12:58.560,058] <inf> ble_output: BLE DATA progress: file=26 6600/9000
+[00:12:59.081,939] <inf> ble_output: BLE DATA progress: file=26 7200/9000
+[00:12:59.603,881] <inf> ble_output: BLE DATA progress: file=26 7800/9000
+[00:13:00.125,793] <inf> ble_output: BLE DATA progress: file=26 8400/9000
+[00:13:00.648,132] <inf> ble_output: BLE DATA progress: file=26 9000/9000
+[00:13:00.653,289] <inf> ble_output: BLE END sent: file=26 sent=9000
+
+[WORK] === Processing snapshot file=27 (collected=28) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (10518/10518 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=27 samples=10518, submitting BLE...
+[RAW] BLE submit OK: file=27
+[WORK] Total work time: 48 ms
+[WORK] Stats: collected=28 processed=28 skipped=0
+[RAW] Header file=28 samples=4174
+[00:13:29.360,351] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:13:29.364,044] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=28 samples=4174
+[00:13:29.405,456] <inf> ble_output: BLE window queued: file=27 samples=10518 integrity=100 label=0
+[00:13:29.421,752] <inf> ble_output: BLE START sent: file=27 samples=10518
+[00:13:29.937,774] <inf> ble_output: BLE DATA progress: file=27 600/10518
+[00:13:30.459,259] <inf> ble_output: BLE DATA progress: file=27 1200/10518
+[00:13:30.981,201] <inf> ble_output: BLE DATA progress: file=27 1800/10518
+[00:13:31.503,234] <inf> ble_output: BLE DATA progress: file=27 2400/10518
+[00:13:32.025,024] <inf> ble_output: BLE DATA progress: file=27 3000/10518
+[00:13:32.547,027] <inf> ble_output: BLE DATA progress: file=27 3600/10518
+[00:13:33.068,634] <inf> ble_output: BLE DATA progress: file=27 4200/10518
+[00:13:33.590,515] <inf> ble_output: BLE DATA progress: file=27 4800/10518
+[00:13:34.112,426] <inf> ble_output: BLE DATA progress: file=27 5400/10518
+[00:13:34.634,033] <inf> ble_output: BLE DATA progress: file=27 6000/10518
+[00:13:35.155,639] <inf> ble_output: BLE DATA progress: file=27 6600/10518
+[00:13:35.677,947] <inf> ble_output: BLE DATA progress: file=27 7200/10518
+[00:13:36.199,249] <inf> ble_output: BLE DATA progress: file=27 7800/10518
+[00:13:36.720,794] <inf> ble_output: BLE DATA progress: file=27 8400/10518
+[00:13:37.242,401] <inf> ble_output: BLE DATA progress: file=27 9000/10518
+[00:13:37.764,465] <inf> ble_output: BLE DATA progress: file=27 9600/10518
+[00:13:38.286,224] <inf> ble_output: BLE DATA progress: file=27 10200/10518
+[00:13:38.562,622] <inf> ble_output: BLE DATA progress: file=27 10518/10518
+[00:13:38.567,840] <inf> ble_output: BLE END sent: file=27 sent=10518
+
+[WORK] === Processing snapshot file=28 (collected=29) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (4174/4174 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=28 samples=4174, submitting BLE...
+[RAW] BLE submit OK: file=28
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=29 processed=29 skipped=0
+[RAW] Header file=29 samples=9000
+[00:13:43.879,608] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:13:43.883,605] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=29 samples=9000
+[00:13:43.923,370] <inf> ble_output: BLE window queued: file=28 samples=4174 integrity=100 label=0
+[00:13:43.939,758] <inf> ble_output: BLE START sent: file=28 samples=4174
+[00:13:44.455,383] <inf> ble_output: BLE DATA progress: file=28 600/4174
+[00:13:44.976,959] <inf> ble_output: BLE DATA progress: file=28 1200/4174
+[00:13:45.498,992] <inf> ble_output: BLE DATA progress: file=28 1800/4174
+[00:13:46.020,660] <inf> ble_output: BLE DATA progress: file=28 2400/4174
+[00:13:46.542,327] <inf> ble_output: BLE DATA progress: file=28 3000/4174
+[00:13:47.064,117] <inf> ble_output: BLE DATA progress: file=28 3600/4174
+[00:13:47.564,910] <inf> ble_output: BLE DATA progress: file=28 4174/4174
+[00:13:47.570,159] <inf> ble_output: BLE END sent: file=28 sent=4174
+
+[WORK] === Processing snapshot file=29 (collected=30) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=29 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=29
+[WORK] Total work time: 48 ms
+[WORK] Stats: collected=30 processed=30 skipped=0
+[RAW] Header file=30 samples=5376
+[00:14:15.241,333] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:14:15.245,147] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=30 samples=5376
+[00:14:15.285,797] <inf> ble_output: BLE window queued: file=29 samples=9000 integrity=100 label=0
+[00:14:15.302,215] <inf> ble_output: BLE START sent: file=29 samples=9000
+[00:14:15.819,152] <inf> ble_output: BLE DATA progress: file=29 600/9000
+[00:14:16.340,698] <inf> ble_output: BLE DATA progress: file=29 1200/9000
+[00:14:16.862,518] <inf> ble_output: BLE DATA progress: file=29 1800/9000
+[00:14:17.383,850] <inf> ble_output: BLE DATA progress: file=29 2400/9000
+[00:14:17.904,846] <inf> ble_output: BLE DATA progress: file=29 3000/9000
+[00:14:18.427,032] <inf> ble_output: BLE DATA progress: file=29 3600/9000
+[00:14:18.947,631] <inf> ble_output: BLE DATA progress: file=29 4200/9000
+[00:14:19.469,421] <inf> ble_output: BLE DATA progress: file=29 4800/9000
+[00:14:19.989,532] <inf> ble_output: BLE DATA progress: file=29 5400/9000
+[00:14:20.511,657] <inf> ble_output: BLE DATA progress: file=29 6000/9000
+[00:14:21.031,768] <inf> ble_output: BLE DATA progress: file=29 6600/9000
+[00:14:21.552,886] <inf> ble_output: BLE DATA progress: file=29 7200/9000
+[00:14:22.073,120] <inf> ble_output: BLE DATA progress: file=29 7800/9000
+[00:14:22.594,360] <inf> ble_output: BLE DATA progress: file=29 8400/9000
+[00:14:23.116,149] <inf> ble_output: BLE DATA progress: file=29 9000/9000
+[00:14:23.121,368] <inf> ble_output: BLE END sent: file=29 sent=9000
+
+[WORK] === Processing snapshot file=30 (collected=31) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (5376/5376 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=30 samples=5376, submitting BLE...
+[RAW] BLE submit OK: file=30
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=31 processed=31 skipped=0
+[RAW] Header file=31 samples=4008
+[00:14:33.990,264] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:14:33.994,079] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=31 samples=4008
+[00:14:34.034,088] <inf> ble_output: BLE window queued: file=30 samples=5376 integrity=100 label=0
+[00:14:34.050,659] <inf> ble_output: BLE START sent: file=30 samples=5376
+[00:14:34.566,070] <inf> ble_output: BLE DATA progress: file=30 600/5376
+[00:14:35.087,768] <inf> ble_output: BLE DATA progress: file=30 1200/5376
+[00:14:35.609,252] <inf> ble_output: BLE DATA progress: file=30 1800/5376
+[00:14:36.130,950] <inf> ble_output: BLE DATA progress: file=30 2400/5376
+[00:14:36.651,702] <inf> ble_output: BLE DATA progress: file=30 3000/5376
+[00:14:37.173,553] <inf> ble_output: BLE DATA progress: file=30 3600/5376
+[00:14:37.695,343] <inf> ble_output: BLE DATA progress: file=30 4200/5376
+[00:14:38.215,728] <inf> ble_output: BLE DATA progress: file=30 4800/5376
+[00:14:38.717,224] <inf> ble_output: BLE DATA progress: file=30 5376/5376
+[00:14:38.722,412] <inf> ble_output: BLE END sent: file=30 sent=5376
+
+[WORK] === Processing snapshot file=31 (collected=32) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (4008/4008 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=31 samples=4008, submitting BLE...
+[RAW] BLE submit OK: file=31
+[WORK] Total work time: 46 ms
+[WORK] Stats: collected=32 processed=32 skipped=0
+[RAW] Header file=32 samples=9000
+[00:14:47.952,087] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:14:47.955,627] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=32 samples=9000
+[00:14:47.995,269] <inf> ble_output: BLE window queued: file=31 samples=4008 integrity=100 label=0
+[00:14:48.011,749] <inf> ble_output: BLE START sent: file=31 samples=4008
+[00:14:48.526,672] <inf> ble_output: BLE DATA progress: file=31 600/4008
+[00:14:49.048,278] <inf> ble_output: BLE DATA progress: file=31 1200/4008
+[00:14:49.570,220] <inf> ble_output: BLE DATA progress: file=31 1800/4008
+[00:14:50.091,583] <inf> ble_output: BLE DATA progress: file=31 2400/4008
+[00:14:50.613,800] <inf> ble_output: BLE DATA progress: file=31 3000/4008
+[00:14:51.135,467] <inf> ble_output: BLE DATA progress: file=31 3600/4008
+[00:14:51.490,142] <inf> ble_output: BLE DATA progress: file=31 4008/4008
+[00:14:51.495,300] <inf> ble_output: BLE END sent: file=31 sent=4008
+
+[WORK] === Processing snapshot file=32 (collected=33) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=32 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=32
+[WORK] Total work time: 48 ms
+[WORK] Stats: collected=33 processed=33 skipped=0
+[RAW] Header file=33 samples=9000
+[00:15:19.263,763] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:15:19.267,852] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=33 samples=9000
+[00:15:19.308,319] <inf> ble_output: BLE window queued: file=32 samples=9000 integrity=100 label=0
+[00:15:19.324,737] <inf> ble_output: BLE START sent: file=32 samples=9000
+[00:15:19.840,576] <inf> ble_output: BLE DATA progress: file=32 600/9000
+[00:15:20.362,396] <inf> ble_output: BLE DATA progress: file=32 1200/9000
+[00:15:20.884,399] <inf> ble_output: BLE DATA progress: file=32 1800/9000
+[00:15:21.405,181] <inf> ble_output: BLE DATA progress: file=32 2400/9000
+[00:15:21.926,208] <inf> ble_output: BLE DATA progress: file=32 3000/9000
+[00:15:22.448,638] <inf> ble_output: BLE DATA progress: file=32 3600/9000
+[00:15:22.971,221] <inf> ble_output: BLE DATA progress: file=32 4200/9000
+[00:15:23.492,126] <inf> ble_output: BLE DATA progress: file=32 4800/9000
+[00:15:24.013,549] <inf> ble_output: BLE DATA progress: file=32 5400/9000
+[00:15:24.534,210] <inf> ble_output: BLE DATA progress: file=32 6000/9000
+[00:15:25.056,640] <inf> ble_output: BLE DATA progress: file=32 6600/9000
+[00:15:25.578,582] <inf> ble_output: BLE DATA progress: file=32 7200/9000
+[00:15:26.100,311] <inf> ble_output: BLE DATA progress: file=32 7800/9000
+[00:15:26.620,971] <inf> ble_output: BLE DATA progress: file=32 8400/9000
+[00:15:27.142,852] <inf> ble_output: BLE DATA progress: file=32 9000/9000
+[00:15:27.148,162] <inf> ble_output: BLE END sent: file=32 sent=9000
+
+[WORK] === Processing snapshot file=33 (collected=34) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=33 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=33
+[WORK] Total work time: 48 ms
+[WORK] Stats: collected=34 processed=34 skipped=0
+[RAW] Header file=34 samples=9000
+[00:15:50.649,597] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:15:50.653,625] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=34 samples=9000
+[00:15:50.694,000] <inf> ble_output: BLE window queued: file=33 samples=9000 integrity=100 label=0
+[00:15:50.710,479] <inf> ble_output: BLE START sent: file=33 samples=9000
+[00:15:51.227,020] <inf> ble_output: BLE DATA progress: file=33 600/9000
+[00:15:51.748,870] <inf> ble_output: BLE DATA progress: file=33 1200/9000
+[00:15:52.270,263] <inf> ble_output: BLE DATA progress: file=33 1800/9000
+[00:15:52.790,802] <inf> ble_output: BLE DATA progress: file=33 2400/9000
+[00:15:53.311,676] <inf> ble_output: BLE DATA progress: file=33 3000/9000
+[00:15:53.833,526] <inf> ble_output: BLE DATA progress: file=33 3600/9000
+[00:15:54.354,553] <inf> ble_output: BLE DATA progress: file=33 4200/9000
+[00:15:54.875,030] <inf> ble_output: BLE DATA progress: file=33 4800/9000
+[00:15:55.396,362] <inf> ble_output: BLE DATA progress: file=33 5400/9000
+[00:15:55.917,327] <inf> ble_output: BLE DATA progress: file=33 6000/9000
+[00:15:56.439,239] <inf> ble_output: BLE DATA progress: file=33 6600/9000
+[00:15:56.961,059] <inf> ble_output: BLE DATA progress: file=33 7200/9000
+[00:15:57.482,879] <inf> ble_output: BLE DATA progress: file=33 7800/9000
+[00:15:58.004,364] <inf> ble_output: BLE DATA progress: file=33 8400/9000
+[00:15:58.526,397] <inf> ble_output: BLE DATA progress: file=33 9000/9000
+[00:15:58.531,616] <inf> ble_output: BLE END sent: file=33 sent=9000
+
+[WORK] === Processing snapshot file=34 (collected=35) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=34 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=34
+[WORK] Total work time: 48 ms
+[WORK] Stats: collected=35 processed=35 skipped=0
+[RAW] Header file=35 samples=3222
+[00:16:21.999,542] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:16:22.003,540] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=35 samples=3222
+[00:16:22.043,853] <inf> ble_output: BLE window queued: file=34 samples=9000 integrity=100 label=0
+[00:16:22.060,333] <inf> ble_output: BLE START sent: file=34 samples=9000
+[00:16:22.576,019] <inf> ble_output: BLE DATA progress: file=34 600/9000
+[00:16:23.097,869] <inf> ble_output: BLE DATA progress: file=34 1200/9000
+[00:16:23.618,591] <inf> ble_output: BLE DATA progress: file=34 1800/9000
+[00:16:24.140,289] <inf> ble_output: BLE DATA progress: file=34 2400/9000
+[00:16:24.660,827] <inf> ble_output: BLE DATA progress: file=34 3000/9000
+[00:16:25.182,678] <inf> ble_output: BLE DATA progress: file=34 3600/9000
+[00:16:25.704,467] <inf> ble_output: BLE DATA progress: file=34 4200/9000
+[00:16:26.225,524] <inf> ble_output: BLE DATA progress: file=34 4800/9000
+[00:16:26.747,406] <inf> ble_output: BLE DATA progress: file=34 5400/9000
+[00:16:27.268,402] <inf> ble_output: BLE DATA progress: file=34 6000/9000
+[00:16:27.790,374] <inf> ble_output: BLE DATA progress: file=34 6600/9000
+[00:16:28.312,500] <inf> ble_output: BLE DATA progress: file=34 7200/9000
+[00:16:28.834,045] <inf> ble_output: BLE DATA progress: file=34 7800/9000
+[00:16:29.355,468] <inf> ble_output: BLE DATA progress: file=34 8400/9000
+[00:16:29.877,227] <inf> ble_output: BLE DATA progress: file=34 9000/9000
+[00:16:29.882,476] <inf> ble_output: BLE END sent: file=34 sent=9000
+
+[WORK] === Processing snapshot file=35 (collected=36) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (3222/3222 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=35 samples=3222, submitting BLE...
+[RAW] BLE submit OK: file=35
+[WORK] Total work time: 46 ms
+[WORK] Stats: collected=36 processed=36 skipped=0
+[RAW] Header file=36 samples=4692
+[00:16:33.217,529] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:16:33.221,435] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=36 samples=4692
+[00:16:33.260,650] <inf> ble_output: BLE window queued: file=35 samples=3222 integrity=100 label=0
+[00:16:33.277,130] <inf> ble_output: BLE START sent: file=35 samples=3222
+[00:16:33.793,365] <inf> ble_output: BLE DATA progress: file=35 600/3222
+[00:16:34.315,307] <inf> ble_output: BLE DATA progress: file=35 1200/3222
+[00:16:34.837,127] <inf> ble_output: BLE DATA progress: file=35 1800/3222
+[00:16:35.359,130] <inf> ble_output: BLE DATA progress: file=35 2400/3222
+[00:16:35.880,859] <inf> ble_output: BLE DATA progress: file=35 3000/3222
+[00:16:36.074,035] <inf> ble_output: BLE DATA progress: file=35 3222/3222
+[00:16:36.079,162] <inf> ble_output: BLE END sent: file=35 sent=3222
+
+[WORK] === Processing snapshot file=36 (collected=37) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (4692/4692 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=36 samples=4692, submitting BLE...
+[RAW] BLE submit OK: file=36
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=37 processed=37 skipped=0
+[RAW] Header file=37 samples=3770
+[00:16:49.610,321] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:16:49.614,288] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=37 samples=3770
+[00:16:49.653,778] <inf> ble_output: BLE window queued: file=36 samples=4692 integrity=100 label=0
+[00:16:49.670,196] <inf> ble_output: BLE START sent: file=36 samples=4692
+[00:16:50.186,492] <inf> ble_output: BLE DATA progress: file=36 600/4692
+[00:16:50.707,244] <inf> ble_output: BLE DATA progress: file=36 1200/4692
+[00:16:51.229,400] <inf> ble_output: BLE DATA progress: file=36 1800/4692
+[00:16:51.749,938] <inf> ble_output: BLE DATA progress: file=36 2400/4692
+[00:16:52.271,911] <inf> ble_output: BLE DATA progress: file=36 3000/4692
+[00:16:52.792,083] <inf> ble_output: BLE DATA progress: file=36 3600/4692
+[00:16:53.313,751] <inf> ble_output: BLE DATA progress: file=36 4200/4692
+[00:16:53.740,631] <inf> ble_output: BLE DATA progress: file=36 4692/4692
+[00:16:53.745,788] <inf> ble_output: BLE END sent: file=36 sent=4692
+
+[WORK] === Processing snapshot file=37 (collected=38) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (3770/3770 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=37 samples=3770, submitting BLE...
+[RAW] BLE submit OK: file=37
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=38 processed=38 skipped=0
+[RAW] Header file=38 samples=8414
+[00:17:02.738,739] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:17:02.742,736] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=38 samples=8414
+[00:17:02.782,196] <inf> ble_output: BLE window queued: file=37 samples=3770 integrity=100 label=0
+[00:17:02.798,736] <inf> ble_output: BLE START sent: file=37 samples=3770
+[00:17:03.314,636] <inf> ble_output: BLE DATA progress: file=37 600/3770
+[00:17:03.835,540] <inf> ble_output: BLE DATA progress: file=37 1200/3770
+[00:17:04.357,238] <inf> ble_output: BLE DATA progress: file=37 1800/3770
+[00:17:04.877,441] <inf> ble_output: BLE DATA progress: file=37 2400/3770
+[00:17:05.397,949] <inf> ble_output: BLE DATA progress: file=37 3000/3770
+[00:17:05.919,921] <inf> ble_output: BLE DATA progress: file=37 3600/3770
+[00:17:06.070,892] <inf> ble_output: BLE DATA progress: file=37 3770/3770
+[00:17:06.076,049] <inf> ble_output: BLE END sent: file=37 sent=3770
+
+[WORK] === Processing snapshot file=38 (collected=39) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (8414/8414 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=38 samples=8414, submitting BLE...
+[RAW] BLE submit OK: file=38
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=39 processed=39 skipped=0
+[RAW] Header file=39 samples=9000
+[00:17:32.043,945] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:17:32.047,912] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=39 samples=9000
+[00:17:32.088,256] <inf> ble_output: BLE window queued: file=38 samples=8414 integrity=100 label=0
+[00:17:32.104,827] <inf> ble_output: BLE START sent: file=38 samples=8414
+[00:17:32.621,643] <inf> ble_output: BLE DATA progress: file=38 600/8414
+[00:17:33.143,096] <inf> ble_output: BLE DATA progress: file=38 1200/8414
+[00:17:33.663,696] <inf> ble_output: BLE DATA progress: file=38 1800/8414
+[00:17:34.185,638] <inf> ble_output: BLE DATA progress: file=38 2400/8414
+[00:17:34.707,458] <inf> ble_output: BLE DATA progress: file=38 3000/8414
+[00:17:35.228,942] <inf> ble_output: BLE DATA progress: file=38 3600/8414
+[00:17:35.750,762] <inf> ble_output: BLE DATA progress: file=38 4200/8414
+[00:17:36.272,399] <inf> ble_output: BLE DATA progress: file=38 4800/8414
+[00:17:36.794,464] <inf> ble_output: BLE DATA progress: file=38 5400/8414
+[00:17:37.316,375] <inf> ble_output: BLE DATA progress: file=38 6000/8414
+[00:17:37.837,982] <inf> ble_output: BLE DATA progress: file=38 6600/8414
+[00:17:38.360,473] <inf> ble_output: BLE DATA progress: file=38 7200/8414
+[00:17:38.883,209] <inf> ble_output: BLE DATA progress: file=38 7800/8414
+[00:17:39.404,479] <inf> ble_output: BLE DATA progress: file=38 8400/8414
+[00:17:39.420,104] <inf> ble_output: BLE DATA progress: file=38 8414/8414
+[00:17:39.425,231] <inf> ble_output: BLE END sent: file=38 sent=8414
+
+[WORK] === Processing snapshot file=39 (collected=40) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=39 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=39
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=40 processed=40 skipped=0
+[RAW] Header file=40 samples=9000
+[00:18:03.363,952] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:18:03.367,797] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=40 samples=9000
+[00:18:03.408,386] <inf> ble_output: BLE window queued: file=39 samples=9000 integrity=100 label=0
+[00:18:03.424,682] <inf> ble_output: BLE START sent: file=39 samples=9000
+[00:18:03.941,711] <inf> ble_output: BLE DATA progress: file=39 600/9000
+[00:18:04.463,500] <inf> ble_output: BLE DATA progress: file=39 1200/9000
+[00:18:04.985,412] <inf> ble_output: BLE DATA progress: file=39 1800/9000
+[00:18:05.506,805] <inf> ble_output: BLE DATA progress: file=39 2400/9000
+[00:18:06.028,656] <inf> ble_output: BLE DATA progress: file=39 3000/9000
+[00:18:06.549,530] <inf> ble_output: BLE DATA progress: file=39 3600/9000
+[00:18:07.070,922] <inf> ble_output: BLE DATA progress: file=39 4200/9000
+[00:18:07.592,651] <inf> ble_output: BLE DATA progress: file=39 4800/9000
+[00:18:08.114,318] <inf> ble_output: BLE DATA progress: file=39 5400/9000
+[00:18:08.636,413] <inf> ble_output: BLE DATA progress: file=39 6000/9000
+[00:18:09.158,294] <inf> ble_output: BLE DATA progress: file=39 6600/9000
+[00:18:09.679,656] <inf> ble_output: BLE DATA progress: file=39 7200/9000
+[00:18:10.201,812] <inf> ble_output: BLE DATA progress: file=39 7800/9000
+[00:18:10.723,144] <inf> ble_output: BLE DATA progress: file=39 8400/9000
+[00:18:11.245,056] <inf> ble_output: BLE DATA progress: file=39 9000/9000
+[00:18:11.250,274] <inf> ble_output: BLE END sent: file=39 sent=9000
+
+[WORK] === Processing snapshot file=40 (collected=41) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=40 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=40
+[WORK] Total work time: 48 ms
+[WORK] Stats: collected=41 processed=41 skipped=0
+[RAW] Header file=41 samples=9000
+[00:18:34.679,504] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:18:34.683,227] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=41 samples=9000
+[00:18:34.723,846] <inf> ble_output: BLE window queued: file=40 samples=9000 integrity=100 label=0
+[00:18:34.740,173] <inf> ble_output: BLE START sent: file=40 samples=9000
+[00:18:35.257,293] <inf> ble_output: BLE DATA progress: file=40 600/9000
+[00:18:35.778,961] <inf> ble_output: BLE DATA progress: file=40 1200/9000
+[00:18:36.300,842] <inf> ble_output: BLE DATA progress: file=40 1800/9000
+[00:18:36.822,875] <inf> ble_output: BLE DATA progress: file=40 2400/9000
+[00:18:37.344,390] <inf> ble_output: BLE DATA progress: file=40 3000/9000
+[00:18:37.864,715] <inf> ble_output: BLE DATA progress: file=40 3600/9000
+[00:18:38.385,772] <inf> ble_output: BLE DATA progress: file=40 4200/9000
+[00:18:38.907,440] <inf> ble_output: BLE DATA progress: file=40 4800/9000
+[00:18:39.429,595] <inf> ble_output: BLE DATA progress: file=40 5400/9000
+[00:18:39.950,683] <inf> ble_output: BLE DATA progress: file=40 6000/9000
+[00:18:40.471,191] <inf> ble_output: BLE DATA progress: file=40 6600/9000
+[00:18:40.992,706] <inf> ble_output: BLE DATA progress: file=40 7200/9000
+[00:18:41.514,190] <inf> ble_output: BLE DATA progress: file=40 7800/9000
+[00:18:42.036,071] <inf> ble_output: BLE DATA progress: file=40 8400/9000
+[00:18:42.557,525] <inf> ble_output: BLE DATA progress: file=40 9000/9000
+[00:18:42.562,774] <inf> ble_output: BLE END sent: file=40 sent=9000
+
+[WORK] === Processing snapshot file=41 (collected=42) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=41 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=41
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=42 processed=42 skipped=0
+[RAW] Header file=42 samples=9000
+[00:19:06.006,134] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:19:06.010,101] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=42 samples=9000
+[00:19:06.050,598] <inf> ble_output: BLE window queued: file=41 samples=9000 integrity=100 label=0
+[00:19:06.067,138] <inf> ble_output: BLE START sent: file=41 samples=9000
+[00:19:06.583,648] <inf> ble_output: BLE DATA progress: file=41 600/9000
+[00:19:07.105,255] <inf> ble_output: BLE DATA progress: file=41 1200/9000
+[00:19:07.626,953] <inf> ble_output: BLE DATA progress: file=41 1800/9000
+[00:19:08.148,529] <inf> ble_output: BLE DATA progress: file=41 2400/9000
+[00:19:08.670,593] <inf> ble_output: BLE DATA progress: file=41 3000/9000
+[00:19:09.192,260] <inf> ble_output: BLE DATA progress: file=41 3600/9000
+[00:19:09.713,958] <inf> ble_output: BLE DATA progress: file=41 4200/9000
+[00:19:10.235,534] <inf> ble_output: BLE DATA progress: file=41 4800/9000
+[00:19:10.757,385] <inf> ble_output: BLE DATA progress: file=41 5400/9000
+[00:19:11.278,869] <inf> ble_output: BLE DATA progress: file=41 6000/9000
+[00:19:11.800,903] <inf> ble_output: BLE DATA progress: file=41 6600/9000
+[00:19:12.322,631] <inf> ble_output: BLE DATA progress: file=41 7200/9000
+[00:19:12.843,933] <inf> ble_output: BLE DATA progress: file=41 7800/9000
+[00:19:13.365,905] <inf> ble_output: BLE DATA progress: file=41 8400/9000
+[00:19:13.887,542] <inf> ble_output: BLE DATA progress: file=41 9000/9000
+[00:19:13.892,700] <inf> ble_output: BLE END sent: file=41 sent=9000
+
+[WORK] === Processing snapshot file=42 (collected=43) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=42 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=42
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=43 processed=43 skipped=0
+[RAW] Header file=43 samples=9000
+[00:19:37.321,319] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:19:37.325,225] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=43 samples=9000
+[00:19:37.365,570] <inf> ble_output: BLE window queued: file=42 samples=9000 integrity=100 label=0
+[00:19:37.382,049] <inf> ble_output: BLE START sent: file=42 samples=9000
+[00:19:37.898,406] <inf> ble_output: BLE DATA progress: file=42 600/9000
+[00:19:38.420,043] <inf> ble_output: BLE DATA progress: file=42 1200/9000
+[00:19:38.942,352] <inf> ble_output: BLE DATA progress: file=42 1800/9000
+[00:19:39.464,050] <inf> ble_output: BLE DATA progress: file=42 2400/9000
+[00:19:39.985,809] <inf> ble_output: BLE DATA progress: file=42 3000/9000
+[00:19:40.507,476] <inf> ble_output: BLE DATA progress: file=42 3600/9000
+[00:19:41.029,296] <inf> ble_output: BLE DATA progress: file=42 4200/9000
+[00:19:41.550,781] <inf> ble_output: BLE DATA progress: file=42 4800/9000
+[00:19:42.072,906] <inf> ble_output: BLE DATA progress: file=42 5400/9000
+[00:19:42.594,360] <inf> ble_output: BLE DATA progress: file=42 6000/9000
+[00:19:43.116,180] <inf> ble_output: BLE DATA progress: file=42 6600/9000
+[00:19:43.637,634] <inf> ble_output: BLE DATA progress: file=42 7200/9000
+[00:19:44.158,203] <inf> ble_output: BLE DATA progress: file=42 7800/9000
+[00:19:44.678,497] <inf> ble_output: BLE DATA progress: file=42 8400/9000
+[00:19:45.200,195] <inf> ble_output: BLE DATA progress: file=42 9000/9000
+[00:19:45.205,383] <inf> ble_output: BLE END sent: file=42 sent=9000
+
+[WORK] === Processing snapshot file=43 (collected=44) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=43 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=43
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=44 processed=44 skipped=0
+[RAW] Header file=44 samples=9000
+[00:20:08.648,284] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:20:08.652,008] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=44 samples=9000
+[00:20:08.692,718] <inf> ble_output: BLE window queued: file=43 samples=9000 integrity=100 label=0
+[00:20:08.709,106] <inf> ble_output: BLE START sent: file=43 samples=9000
+[00:20:09.226,013] <inf> ble_output: BLE DATA progress: file=43 600/9000
+[00:20:09.747,650] <inf> ble_output: BLE DATA progress: file=43 1200/9000
+[00:20:10.269,836] <inf> ble_output: BLE DATA progress: file=43 1800/9000
+[00:20:10.791,595] <inf> ble_output: BLE DATA progress: file=43 2400/9000
+[00:20:11.313,537] <inf> ble_output: BLE DATA progress: file=43 3000/9000
+[00:20:11.835,327] <inf> ble_output: BLE DATA progress: file=43 3600/9000
+[00:20:12.357,604] <inf> ble_output: BLE DATA progress: file=43 4200/9000
+[00:20:12.878,906] <inf> ble_output: BLE DATA progress: file=43 4800/9000
+[00:20:13.401,184] <inf> ble_output: BLE DATA progress: file=43 5400/9000
+[00:20:13.923,065] <inf> ble_output: BLE DATA progress: file=43 6000/9000
+[00:20:14.443,847] <inf> ble_output: BLE DATA progress: file=43 6600/9000
+[00:20:14.964,660] <inf> ble_output: BLE DATA progress: file=43 7200/9000
+[00:20:15.487,182] <inf> ble_output: BLE DATA progress: file=43 7800/9000
+[00:20:16.008,544] <inf> ble_output: BLE DATA progress: file=43 8400/9000
+[00:20:16.530,517] <inf> ble_output: BLE DATA progress: file=43 9000/9000
+[00:20:16.535,675] <inf> ble_output: BLE END sent: file=43 sent=9000
+
+[WORK] === Processing snapshot file=44 (collected=45) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=44 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=44
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=45 processed=45 skipped=0
+[RAW] Header file=45 samples=9000
+[00:20:39.964,263] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:20:39.968,261] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=45 samples=9000
+[00:20:40.008,697] <inf> ble_output: BLE window queued: file=44 samples=9000 integrity=100 label=0
+[00:20:40.024,993] <inf> ble_output: BLE START sent: file=44 samples=9000
+[00:20:40.541,503] <inf> ble_output: BLE DATA progress: file=44 600/9000
+[00:20:41.062,896] <inf> ble_output: BLE DATA progress: file=44 1200/9000
+[00:20:41.582,977] <inf> ble_output: BLE DATA progress: file=44 1800/9000
+[00:20:42.105,041] <inf> ble_output: BLE DATA progress: file=44 2400/9000
+[00:20:42.627,166] <inf> ble_output: BLE DATA progress: file=44 3000/9000
+[00:20:43.148,773] <inf> ble_output: BLE DATA progress: file=44 3600/9000
+[00:20:43.671,142] <inf> ble_output: BLE DATA progress: file=44 4200/9000
+[00:20:44.193,267] <inf> ble_output: BLE DATA progress: file=44 4800/9000
+[00:20:44.715,026] <inf> ble_output: BLE DATA progress: file=44 5400/9000
+[00:20:45.236,968] <inf> ble_output: BLE DATA progress: file=44 6000/9000
+[00:20:45.757,659] <inf> ble_output: BLE DATA progress: file=44 6600/9000
+[00:20:46.279,327] <inf> ble_output: BLE DATA progress: file=44 7200/9000
+[00:20:46.801,696] <inf> ble_output: BLE DATA progress: file=44 7800/9000
+[00:20:47.323,699] <inf> ble_output: BLE DATA progress: file=44 8400/9000
+[00:20:47.845,306] <inf> ble_output: BLE DATA progress: file=44 9000/9000
+[00:20:47.850,708] <inf> ble_output: BLE END sent: file=44 sent=9000
+
+[WORK] === Processing snapshot file=45 (collected=46) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=45 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=45
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=46 processed=46 skipped=0
+[RAW] Header file=46 samples=9000
+[00:21:11.315,032] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:21:11.318,572] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=46 samples=9000
+[00:21:11.359,588] <inf> ble_output: BLE window queued: file=45 samples=9000 integrity=100 label=0
+[00:21:11.376,007] <inf> ble_output: BLE START sent: file=45 samples=9000
+[00:21:11.891,845] <inf> ble_output: BLE DATA progress: file=45 600/9000
+[00:21:12.411,895] <inf> ble_output: BLE DATA progress: file=45 1200/9000
+[00:21:12.932,586] <inf> ble_output: BLE DATA progress: file=45 1800/9000
+[00:21:13.452,819] <inf> ble_output: BLE DATA progress: file=45 2400/9000
+[00:21:13.973,480] <inf> ble_output: BLE DATA progress: file=45 3000/9000
+[00:21:14.493,438] <inf> ble_output: BLE DATA progress: file=45 3600/9000
+[00:21:15.014,312] <inf> ble_output: BLE DATA progress: file=45 4200/9000
+[00:21:15.534,362] <inf> ble_output: BLE DATA progress: file=45 4800/9000
+[00:21:16.055,053] <inf> ble_output: BLE DATA progress: file=45 5400/9000
+[00:21:16.575,103] <inf> ble_output: BLE DATA progress: file=45 6000/9000
+[00:21:17.095,550] <inf> ble_output: BLE DATA progress: file=45 6600/9000
+[00:21:17.615,783] <inf> ble_output: BLE DATA progress: file=45 7200/9000
+[00:21:18.137,634] <inf> ble_output: BLE DATA progress: file=45 7800/9000
+[00:21:18.657,928] <inf> ble_output: BLE DATA progress: file=45 8400/9000
+[00:21:19.179,382] <inf> ble_output: BLE DATA progress: file=45 9000/9000
+[00:21:19.184,600] <inf> ble_output: BLE END sent: file=45 sent=9000
+
+[WORK] === Processing snapshot file=46 (collected=47) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=46 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=46
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=47 processed=47 skipped=0
+[RAW] Header file=47 samples=9000
+[00:21:42.582,214] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:21:42.586,090] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=47 samples=9000
+[00:21:42.626,678] <inf> ble_output: BLE window queued: file=46 samples=9000 integrity=100 label=0
+[00:21:42.643,280] <inf> ble_output: BLE START sent: file=46 samples=9000
+[00:21:43.159,637] <inf> ble_output: BLE DATA progress: file=46 600/9000
+[00:21:43.681,457] <inf> ble_output: BLE DATA progress: file=46 1200/9000
+[00:21:44.203,369] <inf> ble_output: BLE DATA progress: file=46 1800/9000
+[00:21:44.723,937] <inf> ble_output: BLE DATA progress: file=46 2400/9000
+[00:21:45.245,727] <inf> ble_output: BLE DATA progress: file=46 3000/9000
+[00:21:45.767,669] <inf> ble_output: BLE DATA progress: file=46 3600/9000
+[00:21:46.289,550] <inf> ble_output: BLE DATA progress: file=46 4200/9000
+[00:21:46.809,814] <inf> ble_output: BLE DATA progress: file=46 4800/9000
+[00:21:47.331,878] <inf> ble_output: BLE DATA progress: file=46 5400/9000
+[00:21:47.853,363] <inf> ble_output: BLE DATA progress: file=46 6000/9000
+[00:21:48.374,969] <inf> ble_output: BLE DATA progress: file=46 6600/9000
+[00:21:48.895,568] <inf> ble_output: BLE DATA progress: file=46 7200/9000
+[00:21:49.417,266] <inf> ble_output: BLE DATA progress: file=46 7800/9000
+[00:21:49.938,720] <inf> ble_output: BLE DATA progress: file=46 8400/9000
+[00:21:50.459,594] <inf> ble_output: BLE DATA progress: file=46 9000/9000
+[00:21:50.464,813] <inf> ble_output: BLE END sent: file=46 sent=9000
+
+[WORK] === Processing snapshot file=47 (collected=48) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=47 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=47
+[WORK] Total work time: 48 ms
+[WORK] Stats: collected=48 processed=48 skipped=0
+[RAW] Header file=48 samples=9000
+[00:22:13.966,674] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:22:13.970,581] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=48 samples=9000
+[00:22:14.010,894] <inf> ble_output: BLE window queued: file=47 samples=9000 integrity=100 label=0
+[00:22:14.027,191] <inf> ble_output: BLE START sent: file=47 samples=9000
+[00:22:14.542,449] <inf> ble_output: BLE DATA progress: file=47 600/9000
+[00:22:15.063,934] <inf> ble_output: BLE DATA progress: file=47 1200/9000
+[00:22:15.584,899] <inf> ble_output: BLE DATA progress: file=47 1800/9000
+[00:22:16.106,597] <inf> ble_output: BLE DATA progress: file=47 2400/9000
+[00:22:16.628,753] <inf> ble_output: BLE DATA progress: file=47 3000/9000
+[00:22:17.150,604] <inf> ble_output: BLE DATA progress: file=47 3600/9000
+[00:22:17.672,363] <inf> ble_output: BLE DATA progress: file=47 4200/9000
+[00:22:18.194,244] <inf> ble_output: BLE DATA progress: file=47 4800/9000
+[00:22:18.715,393] <inf> ble_output: BLE DATA progress: file=47 5400/9000
+[00:22:19.235,626] <inf> ble_output: BLE DATA progress: file=47 6000/9000
+[00:22:19.756,774] <inf> ble_output: BLE DATA progress: file=47 6600/9000
+[00:22:20.277,313] <inf> ble_output: BLE DATA progress: file=47 7200/9000
+[00:22:20.798,400] <inf> ble_output: BLE DATA progress: file=47 7800/9000
+[00:22:21.320,190] <inf> ble_output: BLE DATA progress: file=47 8400/9000
+[00:22:21.840,667] <inf> ble_output: BLE DATA progress: file=47 9000/9000
+[00:22:21.845,886] <inf> ble_output: BLE END sent: file=47 sent=9000
+
+[WORK] === Processing snapshot file=48 (collected=49) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=48 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=48
+[WORK] Total work time: 48 ms
+[WORK] Stats: collected=49 processed=49 skipped=0
+[RAW] Header file=49 samples=9000
+[00:22:45.336,608] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:22:45.340,484] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=49 samples=9000
+[00:22:45.381,164] <inf> ble_output: BLE window queued: file=48 samples=9000 integrity=100 label=0
+[00:22:45.397,552] <inf> ble_output: BLE START sent: file=48 samples=9000
+[00:22:45.913,818] <inf> ble_output: BLE DATA progress: file=48 600/9000
+[00:22:46.436,126] <inf> ble_output: BLE DATA progress: file=48 1200/9000
+[00:22:46.957,733] <inf> ble_output: BLE DATA progress: file=48 1800/9000
+[00:22:47.479,553] <inf> ble_output: BLE DATA progress: file=48 2400/9000
+[00:22:48.001,129] <inf> ble_output: BLE DATA progress: file=48 3000/9000
+[00:22:48.522,369] <inf> ble_output: BLE DATA progress: file=48 3600/9000
+[00:22:49.044,036] <inf> ble_output: BLE DATA progress: file=48 4200/9000
+[00:22:49.564,361] <inf> ble_output: BLE DATA progress: file=48 4800/9000
+[00:22:50.086,425] <inf> ble_output: BLE DATA progress: file=48 5400/9000
+[00:22:50.606,933] <inf> ble_output: BLE DATA progress: file=48 6000/9000
+[00:22:51.127,868] <inf> ble_output: BLE DATA progress: file=48 6600/9000
+[00:22:51.647,949] <inf> ble_output: BLE DATA progress: file=48 7200/9000
+[00:22:52.170,104] <inf> ble_output: BLE DATA progress: file=48 7800/9000
+[00:22:52.691,955] <inf> ble_output: BLE DATA progress: file=48 8400/9000
+[00:22:53.213,806] <inf> ble_output: BLE DATA progress: file=48 9000/9000
+[00:22:53.218,994] <inf> ble_output: BLE END sent: file=48 sent=9000
+
+[WORK] === Processing snapshot file=49 (collected=50) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=49 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=49
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=50 processed=50 skipped=0
+[RAW] Header file=50 samples=6036
+[00:23:16.658,935] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:23:16.662,933] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=50 samples=6036
+[00:23:16.703,369] <inf> ble_output: BLE window queued: file=49 samples=9000 integrity=100 label=0
+[00:23:16.719,665] <inf> ble_output: BLE START sent: file=49 samples=9000
+[00:23:17.236,572] <inf> ble_output: BLE DATA progress: file=49 600/9000
+[00:23:17.756,683] <inf> ble_output: BLE DATA progress: file=49 1200/9000
+[00:23:18.278,320] <inf> ble_output: BLE DATA progress: file=49 1800/9000
+[00:23:18.800,384] <inf> ble_output: BLE DATA progress: file=49 2400/9000
+[00:23:19.322,265] <inf> ble_output: BLE DATA progress: file=49 3000/9000
+[00:23:19.843,963] <inf> ble_output: BLE DATA progress: file=49 3600/9000
+[00:23:20.366,027] <inf> ble_output: BLE DATA progress: file=49 4200/9000
+[00:23:20.887,969] <inf> ble_output: BLE DATA progress: file=49 4800/9000
+[00:23:21.408,630] <inf> ble_output: BLE DATA progress: file=49 5400/9000
+[00:23:21.929,351] <inf> ble_output: BLE DATA progress: file=49 6000/9000
+[00:23:22.450,531] <inf> ble_output: BLE DATA progress: file=49 6600/9000
+[00:23:22.971,008] <inf> ble_output: BLE DATA progress: file=49 7200/9000
+[00:23:23.492,095] <inf> ble_output: BLE DATA progress: file=49 7800/9000
+[00:23:24.013,305] <inf> ble_output: BLE DATA progress: file=49 8400/9000
+[00:23:24.534,118] <inf> ble_output: BLE DATA progress: file=49 9000/9000
+[00:23:24.539,367] <inf> ble_output: BLE END sent: file=49 sent=9000
+
+[WORK] === Processing snapshot file=50 (collected=51) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (6036/6036 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=50 samples=6036, submitting BLE...
+[RAW] BLE submit OK: file=50
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=51 processed=51 skipped=0
+[RAW] Header file=51 samples=9000
+[00:23:37.673,889] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:23:37.677,795] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=51 samples=9000
+[00:23:37.717,803] <inf> ble_output: BLE window queued: file=50 samples=6036 integrity=100 label=0
+[00:23:37.734,130] <inf> ble_output: BLE START sent: file=50 samples=6036
+[00:23:38.250,030] <inf> ble_output: BLE DATA progress: file=50 600/6036
+[00:23:38.771,301] <inf> ble_output: BLE DATA progress: file=50 1200/6036
+[00:23:39.292,083] <inf> ble_output: BLE DATA progress: file=50 1800/6036
+[00:23:39.812,316] <inf> ble_output: BLE DATA progress: file=50 2400/6036
+[00:23:40.333,770] <inf> ble_output: BLE DATA progress: file=50 3000/6036
+[00:23:40.854,003] <inf> ble_output: BLE DATA progress: file=50 3600/6036
+[00:23:41.375,549] <inf> ble_output: BLE DATA progress: file=50 4200/6036
+[00:23:41.896,240] <inf> ble_output: BLE DATA progress: file=50 4800/6036
+[00:23:42.417,266] <inf> ble_output: BLE DATA progress: file=50 5400/6036
+[00:23:42.938,079] <inf> ble_output: BLE DATA progress: file=50 6000/6036
+[00:23:42.969,390] <inf> ble_output: BLE DATA progress: file=50 6036/6036
+[00:23:42.974,548] <inf> ble_output: BLE END sent: file=50 sent=6036
+
+[WORK] === Processing snapshot file=51 (collected=52) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=51 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=51
+[WORK] Total work time: 48 ms
+[WORK] Stats: collected=52 processed=52 skipped=0
+[RAW] Header file=52 samples=9000
+[00:24:08.982,543] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:24:08.986,541] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=52 samples=9000
+[00:24:09.027,099] <inf> ble_output: BLE window queued: file=51 samples=9000 integrity=100 label=0
+[00:24:09.043,548] <inf> ble_output: BLE START sent: file=51 samples=9000
+[00:24:09.559,143] <inf> ble_output: BLE DATA progress: file=51 600/9000
+[00:24:10.080,474] <inf> ble_output: BLE DATA progress: file=51 1200/9000
+[00:24:10.602,691] <inf> ble_output: BLE DATA progress: file=51 1800/9000
+[00:24:11.124,389] <inf> ble_output: BLE DATA progress: file=51 2400/9000
+[00:24:11.645,996] <inf> ble_output: BLE DATA progress: file=51 3000/9000
+[00:24:12.167,907] <inf> ble_output: BLE DATA progress: file=51 3600/9000
+[00:24:12.689,849] <inf> ble_output: BLE DATA progress: file=51 4200/9000
+[00:24:13.210,876] <inf> ble_output: BLE DATA progress: file=51 4800/9000
+[00:24:13.733,123] <inf> ble_output: BLE DATA progress: file=51 5400/9000
+[00:24:14.254,730] <inf> ble_output: BLE DATA progress: file=51 6000/9000
+[00:24:14.775,482] <inf> ble_output: BLE DATA progress: file=51 6600/9000
+[00:24:15.296,264] <inf> ble_output: BLE DATA progress: file=51 7200/9000
+[00:24:15.817,199] <inf> ble_output: BLE DATA progress: file=51 7800/9000
+[00:24:16.338,928] <inf> ble_output: BLE DATA progress: file=51 8400/9000
+[00:24:16.860,900] <inf> ble_output: BLE DATA progress: file=51 9000/9000
+[00:24:16.866,119] <inf> ble_output: BLE END sent: file=51 sent=9000
+
+[WORK] === Processing snapshot file=52 (collected=53) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=52 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=52
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=53 processed=53 skipped=0
+[RAW] Header file=53 samples=4672
+[00:24:40.292,999] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:24:40.296,997] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=53 samples=4672
+[00:24:40.337,524] <inf> ble_output: BLE window queued: file=52 samples=9000 integrity=100 label=0
+[00:24:40.353,973] <inf> ble_output: BLE START sent: file=52 samples=9000
+[00:24:40.869,995] <inf> ble_output: BLE DATA progress: file=52 600/9000
+[00:24:41.391,174] <inf> ble_output: BLE DATA progress: file=52 1200/9000
+[00:24:41.912,994] <inf> ble_output: BLE DATA progress: file=52 1800/9000
+[00:24:42.435,119] <inf> ble_output: BLE DATA progress: file=52 2400/9000
+[00:24:42.956,054] <inf> ble_output: BLE DATA progress: file=52 3000/9000
+[00:24:43.476,257] <inf> ble_output: BLE DATA progress: file=52 3600/9000
+[00:24:43.998,687] <inf> ble_output: BLE DATA progress: file=52 4200/9000
+[00:24:44.519,989] <inf> ble_output: BLE DATA progress: file=52 4800/9000
+[00:24:45.041,320] <inf> ble_output: BLE DATA progress: file=52 5400/9000
+[00:24:45.561,584] <inf> ble_output: BLE DATA progress: file=52 6000/9000
+[00:24:46.083,587] <inf> ble_output: BLE DATA progress: file=52 6600/9000
+[00:24:46.605,529] <inf> ble_output: BLE DATA progress: file=52 7200/9000
+[00:24:47.127,258] <inf> ble_output: BLE DATA progress: file=52 7800/9000
+[00:24:47.649,200] <inf> ble_output: BLE DATA progress: file=52 8400/9000
+[00:24:48.170,806] <inf> ble_output: BLE DATA progress: file=52 9000/9000
+[00:24:48.176,055] <inf> ble_output: BLE END sent: file=52 sent=9000
+
+[WORK] === Processing snapshot file=53 (collected=54) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (4672/4672 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=53 samples=4672, submitting BLE...
+[RAW] BLE submit OK: file=53
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=54 processed=54 skipped=0
+[RAW] Header file=54 samples=9000
+[00:24:56.577,148] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:24:56.581,115] <inf> uart_sample_rx: UART frame header received: type=0xa1 file=54 samples=9000
+[00:24:56.620,697] <inf> ble_output: BLE window queued: file=53 samples=4672 integrity=100 label=0
+[00:24:56.637,329] <inf> ble_output: BLE START sent: file=53 samples=4672
+[00:24:57.153,015] <inf> ble_output: BLE DATA progress: file=53 600/4672
+[00:24:57.674,682] <inf> ble_output: BLE DATA progress: file=53 1200/4672
+[00:24:58.196,350] <inf> ble_output: BLE DATA progress: file=53 1800/4672
+[00:24:58.717,895] <inf> ble_output: BLE DATA progress: file=53 2400/4672
+[00:24:59.239,715] <inf> ble_output: BLE DATA progress: file=53 3000/4672
+[00:24:59.760,101] <inf> ble_output: BLE DATA progress: file=53 3600/4672
+[00:25:00.281,829] <inf> ble_output: BLE DATA progress: file=53 4200/4672
+[00:25:00.694,152] <inf> ble_output: BLE DATA progress: file=53 4672/4672
+[00:25:00.699,340] <inf> ble_output: BLE END sent: file=53 sent=4672
+
+[WORK] === Processing snapshot file=54 (collected=55) ===
+[WORK] Feature extraction time: 0 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]
+[WORK] Skewness: [0.0000, 0.0000, 0.0000]
+[WORK] Inference time: 0 ms
+[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000
+[RAW] Window done: file=54 samples=9000, submitting BLE...
+[RAW] BLE submit OK: file=54
+[WORK] Total work time: 47 ms
+[WORK] Stats: collected=55 processed=55 skipped=0
+[00:25:27.899,322] <inf> uart_sample_rx: UART frame payload complete; waiting next header
+[00:25:27.943,023] <inf> ble_output: BLE window queued: file=54 samples=9000 integrity=100 label=0
+[00:25:27.955,230] <inf> ble_output: BLE START sent: file=54 samples=9000
+[00:25:28.465,881] <inf> ble_output: BLE DATA progress: file=54 600/9000
+[00:25:28.981,903] <inf> ble_output: BLE DATA progress: file=54 1200/9000
+[00:25:29.500,701] <inf> ble_output: BLE DATA progress: file=54 1800/9000
+[00:25:30.016,540] <inf> ble_output: BLE DATA progress: file=54 2400/9000
+[00:25:30.535,430] <inf> ble_output: BLE DATA progress: file=54 3000/9000
+[00:25:31.051,391] <inf> ble_output: BLE DATA progress: file=54 3600/9000
+[00:25:31.567,169] <inf> ble_output: BLE DATA progress: file=54 4200/9000
+[00:25:32.083,068] <inf> ble_output: BLE DATA progress: file=54 4800/9000
+[00:25:32.601,959] <inf> ble_output: BLE DATA progress: file=54 5400/9000
+[00:25:33.117,828] <inf> ble_output: BLE DATA progress: file=54 6000/9000
+[00:25:33.636,718] <inf> ble_output: BLE DATA progress: file=54 6600/9000
+[00:25:34.152,648] <inf> ble_output: BLE DATA progress: file=54 7200/9000
+[00:25:34.668,426] <inf> ble_output: BLE DATA progress: file=54 7800/9000
+[00:25:35.184,326] <inf> ble_output: BLE DATA progress: file=54 8400/9000
+[00:25:35.703,216] <inf> ble_output: BLE DATA progress: file=54 9000/9000
+[00:25:35.708,404] <inf> ble_output: BLE END sent: file=54 sent=9000

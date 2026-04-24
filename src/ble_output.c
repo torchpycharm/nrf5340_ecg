@@ -8,8 +8,32 @@
 #include <errno.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
+#include <zephyr/bluetooth/bluetooth.h>
+#include <zephyr/bluetooth/uuid.h>
+#include <zephyr/bluetooth/hci.h>
+#include <bluetooth/services/nus.h>
+#include <zephyr/settings/settings.h>
 
 LOG_MODULE_REGISTER(ble_output, LOG_LEVEL_INF);
+
+#define BLE_STREAM_THREAD_STACK_SIZE   2048
+#define BLE_STREAM_THREAD_PRIORITY     8
+#define BLE_STREAM_PACKET_INTERVAL_MS  5
+
+#define DEVICE_NAME                    CONFIG_BT_DEVICE_NAME
+#define DEVICE_NAME_LEN                (sizeof(DEVICE_NAME) - 1)
+
+typedef struct {
+    bool active;
+    bool start_sent;
+    uint16_t file_id;
+    uint32_t sample_count;
+    uint32_t send_index;
+    uint16_t fs_hz;
+    uint8_t integrity_percent;
+    int32_t model_output;
+    int16_t samples[BLE_OUTPUT_MAX_WINDOW_SAMPLES];
+} ble_stream_window_t;
 
 /* ===== 蓝牙消息队列 ===== */
 static ble_message_t *ble_queue = NULL;
@@ -28,6 +52,257 @@ static ble_send_callback_t ble_send_cb = NULL;
 static struct k_thread bg_sender_thread_data;
 static struct k_thread *bg_sender_thread = &bg_sender_thread_data;
 static bool bg_sender_active = false;
+
+/* ===== BLE NUS 发送链路 ===== */
+static struct bt_conn *ble_conn;
+static bool ble_started;
+static bool ble_connected;
+
+static ble_stream_window_t stream_window;
+static struct k_mutex stream_lock;
+static struct k_sem stream_sem;
+
+static struct k_thread stream_thread_data;
+static K_THREAD_STACK_DEFINE(stream_thread_stack, BLE_STREAM_THREAD_STACK_SIZE);
+static bool stream_thread_started;
+
+static const struct bt_data ad[] = {
+    BT_DATA_BYTES(BT_DATA_FLAGS, (BT_LE_AD_GENERAL | BT_LE_AD_NO_BREDR)),
+    BT_DATA(BT_DATA_NAME_COMPLETE, DEVICE_NAME, DEVICE_NAME_LEN),
+};
+
+static const struct bt_data sd[] = {
+    BT_DATA_BYTES(BT_DATA_UUID128_ALL, BT_UUID_NUS_VAL),
+};
+
+static bool raw_baseline_mode_enabled(void)
+{
+    return IS_ENABLED(CONFIG_ECG_RAW_BLE_BASELINE);
+}
+
+static void put_u16_le(uint8_t *dst, uint16_t v)
+{
+    dst[0] = (uint8_t)(v & 0xFF);
+    dst[1] = (uint8_t)((v >> 8) & 0xFF);
+}
+
+static void put_u32_le(uint8_t *dst, uint32_t v)
+{
+    dst[0] = (uint8_t)(v & 0xFF);
+    dst[1] = (uint8_t)((v >> 8) & 0xFF);
+    dst[2] = (uint8_t)((v >> 16) & 0xFF);
+    dst[3] = (uint8_t)((v >> 24) & 0xFF);
+}
+
+static int send_start_packet(const ble_stream_window_t *w)
+{
+    uint8_t pkt[12];
+
+    pkt[0] = BLE_STREAM_PKT_START;
+    pkt[1] = BLE_STREAM_PKT_VERSION;
+    put_u16_le(&pkt[2], w->file_id);
+    put_u32_le(&pkt[4], w->sample_count);
+    put_u16_le(&pkt[8], w->fs_hz);
+    pkt[10] = w->integrity_percent;
+    pkt[11] = (uint8_t)(w->model_output & 0xFF);
+
+    int ret = bt_nus_send(NULL, pkt, sizeof(pkt));
+    if (raw_baseline_mode_enabled() && ret == -ENOTCONN) {
+        return 0;
+    }
+
+    return ret;
+}
+
+static int send_data_packet(ble_stream_window_t *w)
+{
+    uint32_t remaining = w->sample_count - w->send_index;
+    uint8_t chunk_limit = BLE_STREAM_CHUNK_SAMPLES;
+
+    uint8_t chunk_count = (remaining > chunk_limit) ?
+                          chunk_limit :
+                          (uint8_t)remaining;
+    uint8_t pkt[7 + (BLE_STREAM_CHUNK_SAMPLES * 2)];
+    uint16_t start_idx = (uint16_t)w->send_index;
+    uint16_t len = (uint16_t)(7 + (chunk_count * 2));
+
+    pkt[0] = BLE_STREAM_PKT_DATA;
+    pkt[1] = BLE_STREAM_PKT_VERSION;
+    put_u16_le(&pkt[2], w->file_id);
+    put_u16_le(&pkt[4], start_idx);
+    pkt[6] = chunk_count;
+
+    for (uint8_t i = 0; i < chunk_count; i++) {
+        uint16_t pos = (uint16_t)(7 + (i * 2));
+        put_u16_le(&pkt[pos], (uint16_t)w->samples[w->send_index + i]);
+    }
+
+    int ret = bt_nus_send(NULL, pkt, len);
+    if (ret == 0 || (raw_baseline_mode_enabled() && ret == -ENOTCONN)) {
+        w->send_index += chunk_count;
+        return 0;
+    }
+
+    return ret;
+}
+
+static int send_end_packet(const ble_stream_window_t *w)
+{
+    uint8_t pkt[8];
+
+    pkt[0] = BLE_STREAM_PKT_END;
+    pkt[1] = BLE_STREAM_PKT_VERSION;
+    put_u16_le(&pkt[2], w->file_id);
+    put_u16_le(&pkt[4], (uint16_t)w->send_index);
+    pkt[6] = w->integrity_percent;
+    pkt[7] = (uint8_t)(w->model_output & 0xFF);
+
+    int ret = bt_nus_send(NULL, pkt, sizeof(pkt));
+    if (raw_baseline_mode_enabled() && ret == -ENOTCONN) {
+        return 0;
+    }
+
+    return ret;
+}
+
+static void stream_sender_thread(void *arg1, void *arg2, void *arg3)
+{
+    ARG_UNUSED(arg1);
+    ARG_UNUSED(arg2);
+    ARG_UNUSED(arg3);
+
+    LOG_INF("BLE stream sender thread started");
+
+    while (1) {
+        k_sem_take(&stream_sem, K_FOREVER);
+
+        while (1) {
+            int ret;
+
+            k_mutex_lock(&stream_lock, K_FOREVER);
+            bool active = stream_window.active;
+            uint32_t send_index = stream_window.send_index;
+            uint16_t file_id = stream_window.file_id;
+            k_mutex_unlock(&stream_lock);
+
+            if (!active) {
+                break;
+            }
+
+            if (!ble_connected && !raw_baseline_mode_enabled()) {
+                k_sleep(K_MSEC(200));
+                continue;
+            }
+
+            k_mutex_lock(&stream_lock, K_FOREVER);
+            if (!stream_window.start_sent) {
+                ret = send_start_packet(&stream_window);
+                if (ret == 0) {
+                    stream_window.start_sent = true;
+                    LOG_INF("BLE START sent: file=%u samples=%u",
+                            stream_window.file_id,
+                            stream_window.sample_count);
+                }
+                k_mutex_unlock(&stream_lock);
+
+                if (ret != 0) {
+                    LOG_WRN("BLE START send failed: %d", ret);
+                    k_sleep(K_MSEC(10));
+                }
+                continue;
+            }
+
+            if (stream_window.send_index < stream_window.sample_count) {
+                ret = send_data_packet(&stream_window);
+                uint32_t now_sent = stream_window.send_index;
+                uint32_t total = stream_window.sample_count;
+                uint16_t now_file = stream_window.file_id;
+                k_mutex_unlock(&stream_lock);
+
+                if (ret != 0) {
+                    LOG_WRN("BLE DATA send failed: file=%u idx=%u ret=%d",
+                            now_file, send_index, ret);
+                    k_sleep(K_MSEC(10));
+                    continue;
+                }
+
+                if ((now_sent % 600) == 0 || now_sent == total) {
+                    LOG_INF("BLE DATA progress: file=%u %u/%u",
+                            now_file, now_sent, total);
+                }
+
+                k_sleep(K_MSEC(BLE_STREAM_PACKET_INTERVAL_MS));
+                continue;
+            }
+
+            ret = send_end_packet(&stream_window);
+            if (ret == 0) {
+                LOG_INF("BLE END sent: file=%u sent=%u",
+                        stream_window.file_id,
+                        stream_window.send_index);
+                stream_window.active = false;
+                stream_window.start_sent = false;
+                stream_window.sample_count = 0;
+                stream_window.send_index = 0;
+            } else {
+                LOG_WRN("BLE END send failed: file=%u ret=%d", file_id, ret);
+            }
+            k_mutex_unlock(&stream_lock);
+
+            if (ret != 0) {
+                k_sleep(K_MSEC(10));
+            }
+        }
+    }
+}
+
+static void connected(struct bt_conn *conn, uint8_t err)
+{
+    char addr[BT_ADDR_LE_STR_LEN];
+
+    if (err) {
+        LOG_ERR("BLE connection failed: 0x%02x", err);
+        return;
+    }
+
+    bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
+    LOG_INF("BLE connected: %s", addr);
+
+    if (ble_conn) {
+        bt_conn_unref(ble_conn);
+    }
+    ble_conn = bt_conn_ref(conn);
+    ble_connected = true;
+
+    LOG_INF("BLE stream chunk=%u samples/pkt", BLE_STREAM_CHUNK_SAMPLES);
+}
+
+static void disconnected(struct bt_conn *conn, uint8_t reason)
+{
+    char addr[BT_ADDR_LE_STR_LEN];
+
+    bt_addr_le_to_str(bt_conn_get_dst(conn), addr, sizeof(addr));
+    LOG_WRN("BLE disconnected: %s reason=0x%02x", addr, reason);
+
+    ble_connected = false;
+
+    if (ble_conn) {
+        bt_conn_unref(ble_conn);
+        ble_conn = NULL;
+    }
+
+    int adv_ret = bt_le_adv_start(BT_LE_ADV_CONN_FAST_2, ad, ARRAY_SIZE(ad), sd, ARRAY_SIZE(sd));
+    if (adv_ret != 0) {
+        LOG_ERR("BLE re-advertising failed: %d", adv_ret);
+    } else {
+        LOG_INF("BLE re-advertising started");
+    }
+}
+
+BT_CONN_CB_DEFINE(ble_conn_callbacks) = {
+    .connected = connected,
+    .disconnected = disconnected,
+};
 
 /**
  * @brief 初始化蓝牙队列
@@ -56,6 +331,9 @@ int ble_output_init(uint32_t queue_size)
     ble_queue_count = 0;
 
     memset(&ble_stats, 0, sizeof(ble_stats));
+    memset(&stream_window, 0, sizeof(stream_window));
+    k_mutex_init(&stream_lock);
+    k_sem_init(&stream_sem, 0, 1);
 
     LOG_INF("BLE output queue initialized: size=%u", queue_size);
     return 0;
@@ -89,8 +367,102 @@ void ble_output_deinit(void)
     }
 
     ble_queue_size = 0;
+    ble_connected = false;
 
     LOG_INF("BLE queue deinitialized");
+}
+
+int ble_output_start(void)
+{
+    if (ble_started) {
+        return 0;
+    }
+
+    int ret = bt_enable(NULL);
+    if (ret != 0) {
+        LOG_ERR("bt_enable failed: %d", ret);
+        return ret;
+    }
+
+    LOG_INF("Bluetooth initialized");
+
+    if (IS_ENABLED(CONFIG_BT_SETTINGS)) {
+        settings_load();
+    }
+
+    static struct bt_nus_cb nus_cb;
+    ret = bt_nus_init(&nus_cb);
+    if (ret != 0) {
+        LOG_ERR("bt_nus_init failed: %d", ret);
+        return ret;
+    }
+
+    ret = bt_le_adv_start(BT_LE_ADV_CONN_FAST_2, ad, ARRAY_SIZE(ad), sd, ARRAY_SIZE(sd));
+    if (ret != 0) {
+        LOG_ERR("Advertising start failed: %d", ret);
+        return ret;
+    }
+
+    LOG_INF("BLE advertising started");
+
+    if (!stream_thread_started) {
+        k_thread_create(&stream_thread_data,
+                        stream_thread_stack,
+                        K_THREAD_STACK_SIZEOF(stream_thread_stack),
+                        stream_sender_thread,
+                        NULL, NULL, NULL,
+                        K_PRIO_PREEMPT(BLE_STREAM_THREAD_PRIORITY),
+                        0,
+                        K_NO_WAIT);
+        stream_thread_started = true;
+    }
+
+    ble_started = true;
+    return 0;
+}
+
+bool ble_output_is_connected(void)
+{
+    return ble_connected;
+}
+
+int ble_output_submit_window(uint16_t file_id,
+                             const int16_t *samples,
+                             uint32_t sample_count,
+                             uint16_t fs_hz,
+                             uint8_t integrity_percent,
+                             int32_t model_output)
+{
+    if (!samples || sample_count == 0 || sample_count > BLE_OUTPUT_MAX_WINDOW_SAMPLES) {
+        return -EINVAL;
+    }
+
+    if (!ble_started) {
+        return -EACCES;
+    }
+
+    k_mutex_lock(&stream_lock, K_FOREVER);
+    if (stream_window.active) {
+        k_mutex_unlock(&stream_lock);
+        return -EBUSY;
+    }
+
+    memcpy(stream_window.samples, samples, sample_count * sizeof(int16_t));
+    stream_window.file_id = file_id;
+    stream_window.sample_count = sample_count;
+    stream_window.send_index = 0;
+    stream_window.fs_hz = fs_hz;
+    stream_window.integrity_percent = integrity_percent;
+    stream_window.model_output = model_output;
+    stream_window.start_sent = false;
+    stream_window.active = true;
+    k_mutex_unlock(&stream_lock);
+
+    LOG_INF("BLE window queued: file=%u samples=%u integrity=%u label=%d",
+            file_id, sample_count, integrity_percent, model_output);
+
+    k_sem_give(&stream_sem);
+    return 0;
 }
 
 /**

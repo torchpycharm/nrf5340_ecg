@@ -15,6 +15,14 @@
 #include <stdbool.h>
 #include "ecg_processing.h"
 
+#define BLE_STREAM_PKT_VERSION         1
+#define BLE_STREAM_PKT_START           0xA1
+#define BLE_STREAM_PKT_DATA            0xA2
+#define BLE_STREAM_PKT_END             0xA3
+
+#define BLE_OUTPUT_MAX_WINDOW_SAMPLES  12000
+#define BLE_STREAM_CHUNK_SAMPLES       6
+
 /**
  * @brief 蓝牙消息体
  */
@@ -137,5 +145,46 @@ int ble_output_start_background_sender(void);
  * @return 实际发送的消息数
  */
 uint32_t ble_output_send_pending(void);
+
+/**
+ * @brief 初始化并启动 BLE NUS 发送链路
+ *
+ * 启动流程：
+ * 1) bt_enable
+ * 2) bt_nus_init
+ * 3) 开始广播
+ * 4) 启动窗口发送线程
+ *
+ * @return 0 成功, <0 失败
+ */
+int ble_output_start(void);
+
+/**
+ * @brief 查询当前是否有 BLE 连接
+ */
+bool ble_output_is_connected(void);
+
+/**
+ * @brief 提交一个有效窗口到 BLE 发送槽（异步发送）
+ *
+ * 发送协议:
+ * - START: [type, ver, file_id(2), sample_count(4), fs_hz(2), integrity(1), label(1)]
+ * - DATA:  [type, ver, file_id(2), start_idx(2), count(1), samples(count*2)]
+ * - END:   [type, ver, file_id(2), sent_count(2), integrity(1), label(1)]
+ *
+ * @param file_id 窗口文件编号
+ * @param samples 窗口样本数组（int16 LE）
+ * @param sample_count 样本个数
+ * @param fs_hz 采样率
+ * @param integrity_percent 完整性百分比
+ * @param model_output 模型标签（当前用 0/1）
+ * @return 0 成功, -EBUSY 发送槽忙, <0 其他失败
+ */
+int ble_output_submit_window(uint16_t file_id,
+                             const int16_t *samples,
+                             uint32_t sample_count,
+                             uint16_t fs_hz,
+                             uint8_t integrity_percent,
+                             int32_t model_output);
 
 #endif /* BLE_OUTPUT_H */

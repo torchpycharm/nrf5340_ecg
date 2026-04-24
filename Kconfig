@@ -1,0 +1,27 @@
+#
+# Application Kconfig
+#
+
+source "Kconfig.zephyr"
+
+menu "ECG Application"
+
+config ECG_RAW_BLE_MODE
+	bool "Raw BLE passthrough mode"
+	default n
+	help
+	  When enabled, all received ECG data is sent directly via BLE
+	  without any feature extraction or model inference processing.
+	  This is used for data collection and testing purposes.
+
+config ECG_RAW_BLE_BASELINE
+	bool "Raw BLE baseline power test mode"
+	depends on ECG_RAW_BLE_MODE
+	default n
+	help
+	  Enables baseline power test behavior for raw BLE mode:
+	  - Keep UART print output enabled for controlled comparison
+	  - Keep BLE send path active even when central is disconnected
+	  This mode is intended only for power characterization.
+
+endmenu

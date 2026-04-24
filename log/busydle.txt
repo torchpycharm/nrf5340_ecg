@@ -1,0 +1,122 @@
+*** Booting nRF Connect SDK v3.1.1-e2a97fe2578a ***
+*** Using Zephyr OS v4.1.99-ff8f0c579eeb ***
+=== NRF5340 ECG Application Start ===
+UART1 RX started, expecting frame header [type(1),count(2),file(2)] + int16 LE payload
+
+
+========================================
+   NRF5340 ECG Async Snapshot Demo
+   Sam: 300 Hz, Window: 30 sec
+   ECG Buffer: 200 slots
+========================================
+
+Model: fnn_gboost_float
+BLE stream ready, waiting for central connection...
+All modules initialized. Startw�on loop...
+
+[MAIN] >>> Header file=0 samples=9000 <<<
+[MAIN] Snapshot file=0 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=0 (collected=1) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [10.8975, 8.7331, 7.4522]
+[WORK] Skewness: [2.1068, -1.3180, 0.4098]
+[gboost] input_norm=[-0.33634, -0.63876, -0.59741, 0.24630, -1.01429, -0.43597]
+[gboost] score=0.180809 label=0 (threshold=0.5)
+[WORK] Inference time: 18 ms
+[WORK] Inference: model=fnn_gboost_float label=0 score=0.18081
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 214 ms (snap_delay=8 ms)
+[WORK] Stats: collected=1 processed=1 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=1 samples=3760 <<<
+[MAIN] Snapshot file=1 done in 2 ms (buffer_pos=3760)
+
+[WORK] === Processing snapshot file=1 (collected=2) ===
+Processing window with 3760 samples...
+[WORK] Feature extraction time: 64 ms
+[WORK] Window integrity: 100% (3760/3760 samples)
+[WORK] Kurtosis: [6.5835, 15.1835, 22.1685]
+[WORK] Skewness: [1.1802, -3.2166, -4.2518]
+[gboost] input_norm=[-0.68624, -0.09750, 0.36273, -0.11333, -1.69549, -2.12876]
+[gboost] score=-0.058731 label=0 (threshold=0.5)
+[WORK] Inference time: 17 ms
+[WORK] Inference: model=fnn_gboost_float label=0 score=-0.05873
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 126 ms (snap_delay=8 ms)
+[WORK] Stats: collected=2 processed=2 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=2 samples=9000 <<<
+[MAIN] Snapshot file=2 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=2 (collected=3) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.0707, 26.9434, 25.4471]
+[WORK] Skewness: [-4.1169, -4.3014, -4.2131]
+[gboost] input_norm=[0.73208, 0.88926, 0.57663, -2.16910, -2.08472, -2.11472]
+[gboost] score=0.664391 label=1 (threshold=0.5)
+[WORK] Inference time: 17 ms
+[WORK] Inference: model=fnn_gboost_float label=1 score=0.66439
+[WORK] >>> VALID: file=2 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit OK: file=2 samples=9000 connected=1
+[WORK] Total work time: 225 ms (snap_delay=8 ms)
+[WORK] Stats: collected=3 processed=3 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=3 samples=9000 <<<
+[MAIN] Snapshot file=3 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=3 (collected=4) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [12.6671, 15.0169, 13.8965]
+[WORK] Skewness: [2.8538, 3.1476, 3.0215]
+[gboost] input_norm=[-0.19282, -0.11149, -0.17697, 0.53617, 0.58797, 0.51243]
+[gboost] score=0.917381 label=1 (threshold=0.5)
+[WORK] Inference time: 18 ms
+[WORK] Inference: model=fnn_gboost_float label=1 score=0.91738
+[WORK] >>> VALID: file=3 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=3 skipped
+[WORK] Total work time: 224 ms (snap_delay=8 ms)
+[WORK] Stats: collected=4 processed=4 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=4 samples=9000 <<<
+[MAIN] Snapshot file=4 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=4 (collected=5) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [22.5181, 24.6325, 23.8160]
+[WORK] Skewness: [4.0694, 4.2414, 4.2011]
+[gboost] input_norm=[0.60615, 0.69536, 0.47021, 1.00797, 0.98039, 0.94076]
+[gboost] score=1.052069 label=1 (threshold=0.5)
+[WORK] Inference time: 17 ms
+[WORK] Inference: model=fnn_gboost_float label=1 score=1.05207
+[WORK] >>> VALID: file=4 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=4 skipped
+[WORK] Total work time: 224 ms (snap_delay=8 ms)
+[WORK] Stats: collected=5 processed=5 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=5 samples=9000 <<<
+
+上位机接收端连接过后卡在发送头帧这里了
+Serving index.html and SSE on http://127.0.0.1:8000 (rate 300.0 Hz)
+[BLE] ===== CONNECTED =====
+[BLE]   Address : F6:9C:87:B4:D9:6B
+[BLE]   MTU     : 247
+[BLE]   NUS Service found: 6e400001-b5a3-f393-e0a9-e50e24dcca9e
+[BLE]     Char 6e400003-b5a3-f393-e0a9-e50e24dcca9e [notify]
+[BLE]     Char 6e400002-b5a3-f393-e0a9-e50e24dcca9e [write-without-response, write]
+[BLE]   Subscribed to notifications on 6e400003-b5a3-f393-e0a9-e50e24dcca9e
+[BLE] =========================
+[BLE-DECODE] <<< START >>> file=2 samples=9000 fs=300Hz integrity=100% label=1 raw=[a1010200282300002c016401]

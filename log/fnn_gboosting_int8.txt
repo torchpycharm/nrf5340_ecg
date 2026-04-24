@@ -1,0 +1,847 @@
+========================================
+   NRF5340 ECG Async Snapshot Demo
+   Sam: 300 Hz, Window: 30 sec
+   ECG Buffer: 200 slots
+========================================
+
+Model: fnn_gboost_int8
+All modules initialized. Starting collection loop...
+*** Booting nRF Connect SDK v3.1.1-e2a97fe2578a ***
+*** Using Zephyr OS v4.1.99-ff8f0c579eeb ***
+=== NRF5340 ECG Application Start ===
+UART1 RX started, expecting frame header [type(1),count(2),file(2)] + int16 LE payload
+
+
+========================================
+   NRF5340 ECG Async Snapshot Demo
+   Sam: 300 Hz, Window: 30 sec
+   ECG Buffer: 200 slots
+========================================
+
+Model: fnn_gboost_int8
+All modules initialized. Starting collection loop...
+
+[MAIN] >>> Header file=0 samples=9000 <<<
+[MAIN] Snapshot file=0 done in 1 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=0 (collected=1) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [10.8975, 8.7331, 7.4522]
+[WORK] Skewness: [2.1068, -1.3180, 0.4098]
+[gboost_int8] residuals=[0.080458, -0.012489, -0.391195] score=0.176774 label=0
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.17677
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 206 ms (snap_delay=8 ms)
+[WORK] Stats: collected=1 processed=1 skipped=0
+
+[MAIN] >>> Header file=1 samples=3760 <<<
+[MAIN] Snapshot file=1 done in 2 ms (buffer_pos=3760)
+
+[WORK] === Processing snapshot file=1 (collected=2) ===
+[WORK] Feature extraction time: 61 ms
+[WORK] Window integrity: 100% (3760/3760 samples)
+[WORK] Kurtosis: [6.5835, 15.1835, 22.1685]
+[WORK] Skewness: [1.1802, -3.2166, -4.2518]
+[gboost_int8] residuals=[0.006705, -0.012489, -0.553578] score=-0.059363 label=0
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=-0.05936
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 117 ms (snap_delay=8 ms)
+[WORK] Stats: collected=2 processed=2 skipped=0
+
+[MAIN] >>> Header file=2 samples=9000 <<<
+[MAIN] Snapshot file=2 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=2 (collected=3) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.0707, 26.9434, 25.4471]
+[WORK] Skewness: [-4.1169, -4.3014, -4.2131]
+[gboost_int8] residuals=[0.080458, -0.012489, 0.081191] score=0.649161 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.64916
+[WORK] >>> VALID: file=2 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=3 processed=3 skipped=0
+
+[MAIN] >>> Header file=3 samples=9000 <<<
+[MAIN] Snapshot file=3 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=3 (collected=4) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [12.6671, 15.0169, 13.8965]
+[WORK] Skewness: [2.8538, 3.1476, 3.0215]
+[gboost_int8] residuals=[0.315129, 0.104075, 0.014762] score=0.933966 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.93397
+[WORK] >>> VALID: file=3 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 208 ms (snap_delay=9 ms)
+[WORK] Stats: collected=4 processed=4 skipped=0
+
+[MAIN] >>> Header file=4 samples=9000 <<<
+[MAIN] Snapshot file=4 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=4 (collected=5) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [22.5181, 24.6325, 23.8160]
+[WORK] Skewness: [4.0694, 4.2414, 4.2011]
+[gboost_int8] residuals=[0.482750, 0.000000, 0.073810] score=1.056561 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=1.05656
+[WORK] >>> VALID: file=4 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 208 ms (snap_delay=8 ms)
+[WORK] Stats: collected=5 processed=5 skipped=0
+
+[MAIN] >>> Header file=5 samples=9000 <<<
+[MAIN] Snapshot file=5 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=5 (collected=6) ===
+[WORK] Feature extraction time: 149 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [12.7955, 3.8608, 11.3074]
+[WORK] Skewness: [-2.0027, -0.4592, -1.4440]
+[gboost_int8] residuals=[-0.368767, -0.012489, -0.066429] score=0.052314 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.05231
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 207 ms (snap_delay=8 ms)
+[WORK] Stats: collected=6 processed=6 skipped=0
+
+[MAIN] >>> Header file=6 samples=9000 <<<
+[MAIN] Snapshot file=6 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=6 (collected=7) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [10.9811, 12.8089, 12.6454]
+[WORK] Skewness: [-2.5149, -2.7151, -2.7149]
+[gboost_int8] residuals=[-0.174326, -0.012489, -0.007381] score=0.305803 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.30580
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 207 ms (snap_delay=9 ms)
+[WORK] Stats: collected=7 processed=7 skipped=0
+
+[MAIN] >>> Header file=7 samples=9000 <<<
+[MAIN] Snapshot file=7 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=7 (collected=8) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [20.7974, 31.0212, 25.6608]
+[WORK] Skewness: [3.2484, 4.3794, 4.0744]
+[gboost_int8] residuals=[0.328538, 0.037467, 0.081191] score=0.947197 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.94720
+[WORK] >>> VALID: file=7 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 208 ms (snap_delay=8 ms)
+[WORK] Stats: collected=8 processed=8 skipped=0
+
+[MAIN] >>> Header file=8 samples=9000 <<<
+[MAIN] Snapshot file=8 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=8 (collected=9) ===
+[WORK] Feature extraction time: 149 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [19.1142, 23.2515, 22.0658]
+[WORK] Skewness: [-3.6639, -4.0017, -4.0223]
+[gboost_int8] residuals=[0.080458, -0.012489, 0.081191] score=0.649161 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.64916
+[WORK] >>> VALID: file=8 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=9 processed=9 skipped=0
+
+[MAIN] >>> Header file=9 samples=3116 <<<
+[MAIN] Snapshot file=9 done in 2 ms (buffer_pos=3116)
+
+[WORK] === Processing snapshot file=9 (collected=10) ===
+[WORK] Feature extraction time: 50 ms
+[WORK] Window integrity: 100% (3116/3116 samples)
+[WORK] Kurtosis: [3.6207, 5.4597, 3.7830]
+[WORK] Skewness: [-0.0010, -1.6721, -0.0972]
+[gboost_int8] residuals=[-0.368767, -0.012489, -0.184526] score=-0.065783 label=0
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=-0.06578
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 106 ms (snap_delay=8 ms)
+[WORK] Stats: collected=10 processed=10 skipped=0
+
+[MAIN] >>> Header file=10 samples=9000 <<<
+[MAIN] Snapshot file=10 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=10 (collected=11) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [3.6880, 3.8771, 3.5750]
+[WORK] Skewness: [0.1802, -0.2243, 0.0916]
+[gboost_int8] residuals=[-0.482750, -0.012489, -0.007381] score=-0.002620 label=0
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=-0.00262
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 206 ms (snap_delay=9 ms)
+[WORK] Stats: collected=11 processed=11 skipped=0
+
+[MAIN] >>> Header file=11 samples=9000 <<<
+[MAIN] Snapshot file=11 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=11 (collected=12) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [21.9988, 22.9530, 24.4418]
+[WORK] Skewness: [3.9585, 4.1937, 4.3753]
+[gboost_int8] residuals=[0.489455, 0.012489, 0.051667] score=1.053611 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=1.05361
+[WORK] >>> VALID: file=11 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=12 processed=12 skipped=0
+
+[MAIN] >>> Header file=12 samples=9000 <<<
+[MAIN] Snapshot file=12 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=12 (collected=13) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [23.9901, 22.7482, 24.0447]
+[WORK] Skewness: [4.0494, 4.0787, 4.2261]
+[gboost_int8] residuals=[0.496160, -0.012489, 0.036905] score=1.020576 label=1
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=1.02058
+[WORK] >>> VALID: file=12 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=13 processed=13 skipped=0
+
+[MAIN] >>> Header file=13 samples=3931 <<<
+[MAIN] Snapshot file=13 done in 2 ms (buffer_pos=3931)
+
+[WORK] === Processing snapshot file=13 (collected=14) ===
+[WORK] Feature extraction time: 63 ms
+[WORK] Window integrity: 100% (3931/3931 samples)
+[WORK] Kurtosis: [4.2741, 8.5375, 10.8692]
+[WORK] Skewness: [0.7583, -1.8572, -2.2830]
+[gboost_int8] residuals=[-0.221260, -0.012489, -0.184526] score=0.081724 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.08172
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 119 ms (snap_delay=8 ms)
+[WORK] Stats: collected=14 processed=14 skipped=0
+
+[MAIN] >>> Header file=14 samples=3676 <<<
+[MAIN] Snapshot file=14 done in 2 ms (buffer_pos=3676)
+
+[WORK] === Processing snapshot file=14 (collected=15) ===
+[WORK] Feature extraction time: 59 ms
+[WORK] Window integrity: 100% (3676/3676 samples)
+[WORK] Kurtosis: [3.1971, 3.3944, 2.6458]
+[WORK] Skewness: [-0.2588, 0.4384, 0.5254]
+[gboost_int8] residuals=[-0.596733, -0.012489, 0.095954] score=-0.013268 label=0
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=-0.01327
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 115 ms (snap_delay=9 ms)
+[WORK] Stats: collected=15 processed=15 skipped=0
+
+[MAIN] >>> Header file=15 samples=9000 <<<
+[MAIN] Snapshot file=15 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=15 (collected=16) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [3.9973, 9.6226, 6.8000]
+[WORK] Skewness: [-1.1908, -1.8473, -1.2271]
+[gboost_int8] residuals=[-0.382177, -0.012489, -0.132859] score=-0.027525 label=0
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=-0.02752
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 207 ms (snap_delay=8 ms)
+[WORK] Stats: collected=16 processed=16 skipped=0
+
+[MAIN] >>> Header file=16 samples=9000 <<<
+[MAIN] Snapshot file=16 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=16 (collected=17) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [23.5440, 23.5105, 23.7510]
+[WORK] Skewness: [-4.2152, -4.2203, -4.2569]
+[gboost_int8] residuals=[0.100573, -0.012489, 0.081191] score=0.669275 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.66928
+[WORK] >>> VALID: file=16 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=17 processed=17 skipped=0
+
+[MAIN] >>> Header file=17 samples=9000 <<<
+[MAIN] Snapshot file=17 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=17 (collected=18) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [9.2347, 8.5589, 6.4018]
+[WORK] Skewness: [1.4280, -1.2071, -0.3019]
+[gboost_int8] residuals=[-0.093868, -0.012489, -0.221431] score=0.172212 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.17221
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 207 ms (snap_delay=9 ms)
+[WORK] Stats: collected=18 processed=18 skipped=0
+
+[MAIN] >>> Header file=18 samples=9000 <<<
+[MAIN] Snapshot file=18 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=18 (collected=19) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [5.4629, 5.2075, 3.3774]
+[WORK] Skewness: [0.2998, 0.1603, -0.0843]
+[gboost_int8] residuals=[-0.482750, -0.012489, 0.066429] score=0.071190 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.07119
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 206 ms (snap_delay=8 ms)
+[WORK] Stats: collected=19 processed=19 skipped=0
+
+[MAIN] >>> Header file=19 samples=9000 <<<
+[MAIN] Snapshot file=19 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=19 (collected=20) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [3.4343, 4.0046, 4.4412]
+[WORK] Skewness: [0.5437, 0.0374, 0.7282]
+[gboost_int8] residuals=[-0.415701, -0.012489, -0.036905] score=0.034904 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.03490
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 206 ms (snap_delay=8 ms)
+[WORK] Stats: collected=20 processed=20 skipped=0
+
+[MAIN] >>> Header file=20 samples=9000 <<<
+[MAIN] Snapshot file=20 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=20 (collected=21) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [18.0183, 18.5100, 17.8082]
+[WORK] Skewness: [3.5516, 3.6604, 3.5210]
+[gboost_int8] residuals=[0.408997, 0.041630, -0.036905] score=0.913722 label=1
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.91372
+[WORK] >>> VALID: file=20 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=21 processed=21 skipped=0
+
+[MAIN] >>> Header file=21 samples=9000 <<<
+[MAIN] Snapshot file=21 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=21 (collected=22) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [21.0367, 26.8370, 22.1191]
+[WORK] Skewness: [3.8470, 4.4836, 4.0036]
+[gboost_int8] residuals=[0.415701, 0.037467, 0.073810] score=1.026979 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=1.02698
+[WORK] >>> VALID: file=21 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=22 processed=22 skipped=0
+
+[MAIN] >>> Header file=22 samples=9000 <<<
+[MAIN] Snapshot file=22 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=22 (collected=23) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [22.4273, 23.1884, 23.3435]
+[WORK] Skewness: [3.8848, 3.9228, 4.0029]
+[gboost_int8] residuals=[0.442521, 0.012489, 0.059048] score=1.014058 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=1.01406
+[WORK] >>> VALID: file=22 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=23 processed=23 skipped=0
+
+[MAIN] >>> Header file=23 samples=6024 <<<
+[MAIN] Snapshot file=23 done in 1 ms (buffer_pos=6024)
+
+[WORK] === Processing snapshot file=23 (collected=24) ===
+[WORK] Feature extraction time: 99 ms
+[WORK] Window integrity: 100% (6024/6024 samples)
+[WORK] Kurtosis: [6.4215, 5.8879, 13.5931]
+[WORK] Skewness: [0.9898, 0.9287, -2.4091]
+[gboost_int8] residuals=[-0.509570, -0.012489, 0.155002] score=0.132943 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.13294
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 155 ms (snap_delay=8 ms)
+[WORK] Stats: collected=24 processed=24 skipped=0
+
+[MAIN] >>> Header file=24 samples=9000 <<<
+[MAIN] Snapshot file=24 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=24 (collected=25) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.2341, 23.8445, 25.6234]
+[WORK] Skewness: [-4.2646, -4.2695, -4.4529]
+[gboost_int8] residuals=[0.100573, -0.012489, 0.081191] score=0.669275 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.66928
+[WORK] >>> VALID: file=24 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=9 ms)
+[WORK] Stats: collected=25 processed=25 skipped=0
+
+[MAIN] >>> Header file=25 samples=9000 <<<
+[MAIN] Snapshot file=25 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=25 (collected=26) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [12.3959, 5.2987, 3.9186]
+[WORK] Skewness: [2.4509, -0.5983, -0.8934]
+[gboost_int8] residuals=[-0.147507, -0.012489, -0.199288] score=0.140716 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.14072
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 207 ms (snap_delay=8 ms)
+[WORK] Stats: collected=26 processed=26 skipped=0
+
+[MAIN] >>> Header file=26 samples=9000 <<<
+[MAIN] Snapshot file=26 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=26 (collected=27) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [15.4257, 20.6099, 20.8710]
+[WORK] Skewness: [3.2280, 3.9278, 4.0240]
+[gboost_int8] residuals=[0.395587, 0.108238, -0.014762] score=0.989063 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.98906
+[WORK] >>> VALID: file=26 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=27 processed=27 skipped=0
+
+[MAIN] >>> Header file=27 samples=10518 <<<
+[MAIN] Snapshot file=27 done in 2 ms (buffer_pos=10518)
+
+[WORK] === Processing snapshot file=27 (collected=28) ===
+[WORK] Feature extraction time: 176 ms
+[WORK] Window integrity: 100% (10518/10518 samples)
+[WORK] Kurtosis: [3.5710, 7.8452, 3.0893]
+[WORK] Skewness: [-0.3812, 1.5076, 0.2438]
+[gboost_int8] residuals=[-0.730830, -0.012489, 0.332147] score=0.088828 label=0
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.08883
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 233 ms (snap_delay=8 ms)
+[WORK] Stats: collected=28 processed=28 skipped=0
+
+[MAIN] >>> Header file=28 samples=4174 <<<
+[MAIN] Snapshot file=28 done in 2 ms (buffer_pos=4174)
+
+[WORK] === Processing snapshot file=28 (collected=29) ===
+[WORK] Feature extraction time: 67 ms
+[WORK] Window integrity: 100% (4174/4174 samples)
+[WORK] Kurtosis: [3.0059, 8.8154, 6.6268]
+[WORK] Skewness: [0.7198, 1.8862, 0.1416]
+[gboost_int8] residuals=[-0.650372, -0.012489, 0.317385] score=0.154524 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.15452
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 124 ms (snap_delay=8 ms)
+[WORK] Stats: collected=29 processed=29 skipped=0
+
+[MAIN] >>> Header file=29 samples=9000 <<<
+[MAIN] Snapshot file=29 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=29 (collected=30) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [21.8260, 21.3304, 21.3965]
+[WORK] Skewness: [3.9375, 3.9769, 4.0116]
+[gboost_int8] residuals=[0.449226, 0.029141, 0.022143] score=1.000510 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=1.00051
+[WORK] >>> VALID: file=29 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=30 processed=30 skipped=0
+
+[MAIN] >>> Header file=30 samples=5376 <<<
+[MAIN] Snapshot file=30 done in 2 ms (buffer_pos=5376)
+
+[WORK] === Processing snapshot file=30 (collected=31) ===
+[WORK] Feature extraction time: 89 ms
+[WORK] Window integrity: 100% (5376/5376 samples)
+[WORK] Kurtosis: [26.7280, 18.4005, 5.8439]
+[WORK] Skewness: [-3.5605, -3.3092, -0.6203]
+[gboost_int8] residuals=[0.100573, -0.012489, 0.059048] score=0.647132 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.64713
+[WORK] >>> VALID: file=30 label=1, backup 5376 samples ready for BLE <<<
+[WORK] Total work time: 147 ms (snap_delay=9 ms)
+[WORK] Stats: collected=31 processed=31 skipped=0
+
+[MAIN] >>> Header file=31 samples=4008 <<<
+[MAIN] Snapshot file=31 done in 2 ms (buffer_pos=4008)
+
+[WORK] === Processing snapshot file=31 (collected=32) ===
+[WORK] Feature extraction time: 65 ms
+[WORK] Window integrity: 100% (4008/4008 samples)
+[WORK] Kurtosis: [4.4360, 3.3565, 3.7511]
+[WORK] Skewness: [0.9004, 0.0134, 0.3063]
+[gboost_int8] residuals=[-0.455931, -0.012489, -0.007381] score=0.024199 label=0
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.02420
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 121 ms (snap_delay=8 ms)
+[WORK] Stats: collected=32 processed=32 skipped=0
+
+[MAIN] >>> Header file=32 samples=9000 <<<
+[MAIN] Snapshot file=32 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=32 (collected=33) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [28.1502, 27.0409, 24.4474]
+[WORK] Skewness: [4.7941, 4.6215, 4.3609]
+[gboost_int8] residuals=[0.502865, -0.074934, 0.036905] score=0.964835 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.96484
+[WORK] >>> VALID: file=32 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=33 processed=33 skipped=0
+
+[MAIN] >>> Header file=33 samples=9000 <<<
+[MAIN] Snapshot file=33 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=33 (collected=34) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.1352, 24.4900, 24.9700]
+[WORK] Skewness: [4.2272, 4.2999, 4.4220]
+[gboost_int8] residuals=[0.522979, -0.004163, 0.059048] score=1.077865 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=1.07786
+[WORK] >>> VALID: file=33 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=9 ms)
+[WORK] Stats: collected=34 processed=34 skipped=0
+
+[MAIN] >>> Header file=34 samples=9000 <<<
+[MAIN] Snapshot file=34 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=34 (collected=35) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [15.4525, 16.5278, 15.0277]
+[WORK] Skewness: [3.1146, 3.2501, 3.0732]
+[gboost_int8] residuals=[0.348653, 0.083260, -0.014762] score=0.917151 label=1
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.91715
+[WORK] >>> VALID: file=34 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=35 processed=35 skipped=0
+
+[MAIN] >>> Header file=35 samples=3222 <<<
+[MAIN] Snapshot file=35 done in 2 ms (buffer_pos=3222)
+
+[WORK] === Processing snapshot file=35 (collected=36) ===
+[WORK] Feature extraction time: 51 ms
+[WORK] Window integrity: 100% (3222/3222 samples)
+[WORK] Kurtosis: [3.9348, 10.9060, 16.8003]
+[WORK] Skewness: [0.8346, 1.9673, -2.9995]
+[gboost_int8] residuals=[-0.650372, -0.012489, 0.317385] score=0.154524 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.15452
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 108 ms (snap_delay=8 ms)
+[WORK] Stats: collected=36 processed=36 skipped=0
+
+[MAIN] >>> Header file=36 samples=4692 <<<
+[MAIN] Snapshot file=36 done in 2 ms (buffer_pos=4692)
+
+[WORK] === Processing snapshot file=36 (collected=37) ===
+[WORK] Feature extraction time: 76 ms
+[WORK] Window integrity: 100% (4692/4692 samples)
+[WORK] Kurtosis: [51.6309, 12.9542, 46.4881]
+[WORK] Skewness: [-4.5354, 0.3597, -5.6490]
+[gboost_int8] residuals=[0.100573, -0.291411, 0.014762] score=0.323924 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.32392
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 133 ms (snap_delay=8 ms)
+[WORK] Stats: collected=37 processed=37 skipped=0
+
+[MAIN] >>> Header file=37 samples=3770 <<<
+[MAIN] Snapshot file=37 done in 2 ms (buffer_pos=3770)
+
+[WORK] === Processing snapshot file=37 (collected=38) ===
+[WORK] Feature extraction time: 60 ms
+[WORK] Window integrity: 100% (3770/3770 samples)
+[WORK] Kurtosis: [6.1116, 3.9711, 6.1054]
+[WORK] Skewness: [0.1964, -0.1210, 1.3530]
+[gboost_int8] residuals=[-0.308424, -0.012489, -0.199288] score=-0.020201 label=0
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=-0.02020
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 117 ms (snap_delay=8 ms)
+[WORK] Stats: collected=38 processed=38 skipped=0
+
+[MAIN] >>> Header file=38 samples=8414 <<<
+[MAIN] Snapshot file=38 done in 2 ms (buffer_pos=8414)
+
+[WORK] === Processing snapshot file=38 (collected=39) ===
+[WORK] Feature extraction time: 140 ms
+[WORK] Window integrity: 100% (8414/8414 samples)
+[WORK] Kurtosis: [4.3767, 4.1144, 7.9849]
+[WORK] Skewness: [0.1966, -0.5497, 0.4499]
+[gboost_int8] residuals=[-0.341948, -0.012489, -0.169764] score=-0.024201 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=-0.02420
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 197 ms (snap_delay=9 ms)
+[WORK] Stats: collected=39 processed=39 skipped=0
+
+[MAIN] >>> Header file=39 samples=9000 <<<
+[MAIN] Snapshot file=39 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=39 (collected=40) ===
+[WORK] Feature extraction time: 149 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [25.9460, 30.3916, 30.8044]
+[WORK] Skewness: [4.3586, 4.9163, 4.9678]
+[gboost_int8] residuals=[0.509570, -0.037467, 0.081191] score=1.053294 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=1.05329
+[WORK] >>> VALID: file=39 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=40 processed=40 skipped=0
+
+[MAIN] >>> Header file=40 samples=9000 <<<
+[MAIN] Snapshot file=40 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=40 (collected=41) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [19.9529, 18.8127, 19.6090]
+[WORK] Skewness: [3.8110, 3.7064, 3.7742]
+[gboost_int8] residuals=[0.455931, 0.029141, -0.029524] score=0.955548 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.95555
+[WORK] >>> VALID: file=40 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=41 processed=41 skipped=0
+
+[MAIN] >>> Header file=41 samples=9000 <<<
+[MAIN] Snapshot file=41 done in 1 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=41 (collected=42) ===
+[WORK] Feature extraction time: 149 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [19.8742, 18.9564, 18.4359]
+[WORK] Skewness: [3.6477, 3.5450, 3.4960]
+[gboost_int8] residuals=[0.388882, 0.029141, -0.029524] score=0.888499 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.88850
+[WORK] >>> VALID: file=41 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 208 ms (snap_delay=8 ms)
+[WORK] Stats: collected=42 processed=42 skipped=0
+
+[MAIN] >>> Header file=42 samples=9000 <<<
+[MAIN] Snapshot file=42 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=42 (collected=43) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [20.4989, 19.0250, 21.2826]
+[WORK] Skewness: [3.7809, 3.6516, 3.9327]
+[gboost_int8] residuals=[0.476045, 0.024978, -0.022143] score=0.978880 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.97888
+[WORK] >>> VALID: file=42 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 208 ms (snap_delay=8 ms)
+[WORK] Stats: collected=43 processed=43 skipped=0
+
+[MAIN] >>> Header file=43 samples=9000 <<<
+[MAIN] Snapshot file=43 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=43 (collected=44) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [53.1177, 11.0793, 9.4164]
+[WORK] Skewness: [5.9324, 2.3787, 0.8026]
+[gboost_int8] residuals=[0.187736, -0.045793, -0.516673] score=0.125270 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.12527
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 207 ms (snap_delay=8 ms)
+[WORK] Stats: collected=44 processed=44 skipped=0
+
+[MAIN] >>> Header file=44 samples=9000 <<<
+[MAIN] Snapshot file=44 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=44 (collected=45) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [19.2548, 20.8618, 19.1659]
+[WORK] Skewness: [3.9722, 4.1175, 3.9640]
+[gboost_int8] residuals=[0.462635, 0.041630, -0.014762] score=0.989504 label=1
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.98950
+[WORK] >>> VALID: file=44 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=45 processed=45 skipped=0
+
+[MAIN] >>> Header file=45 samples=9000 <<<
+[MAIN] Snapshot file=45 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=45 (collected=46) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [18.6669, 20.7702, 19.7629]
+[WORK] Skewness: [3.4306, 3.7682, 3.6859]
+[gboost_int8] residuals=[0.402292, 0.049956, 0.022143] score=0.974391 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.97439
+[WORK] >>> VALID: file=45 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 208 ms (snap_delay=8 ms)
+[WORK] Stats: collected=46 processed=46 skipped=0
+
+[MAIN] >>> Header file=46 samples=9000 <<<
+[MAIN] Snapshot file=46 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=46 (collected=47) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [7.6274, 5.6560, 5.7912]
+[WORK] Skewness: [-0.7099, -0.8859, -0.8677]
+[gboost_int8] residuals=[-0.368767, -0.012489, -0.081191] score=0.037552 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.03755
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 208 ms (snap_delay=8 ms)
+[WORK] Stats: collected=47 processed=47 skipped=0
+
+[MAIN] >>> Header file=47 samples=9000 <<<
+[MAIN] Snapshot file=47 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=47 (collected=48) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [6.0122, 4.9438, 5.3203]
+[WORK] Skewness: [0.2479, 0.8675, 0.9260]
+[gboost_int8] residuals=[-0.429111, -0.012489, 0.044286] score=0.102686 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.10269
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 206 ms (snap_delay=8 ms)
+[WORK] Stats: collected=48 processed=48 skipped=0
+
+[MAIN] >>> Header file=48 samples=9000 <<<
+[MAIN] Snapshot file=48 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=48 (collected=49) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [15.8920, 21.1229, 20.2346]
+[WORK] Skewness: [3.0280, 3.7865, 3.5154]
+[gboost_int8] residuals=[0.362063, 0.099912, 0.014762] score=0.976737 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.97674
+[WORK] >>> VALID: file=48 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 208 ms (snap_delay=9 ms)
+[WORK] Stats: collected=49 processed=49 skipped=0
+
+[MAIN] >>> Header file=49 samples=9000 <<<
+[MAIN] Snapshot file=49 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=49 (collected=50) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.9071, 23.8403, 25.6602]
+[WORK] Skewness: [4.1649, 4.0641, 4.2876]
+[gboost_int8] residuals=[0.489455, -0.008326, 0.059048] score=1.040177 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=1.04018
+[WORK] >>> VALID: file=49 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=50 processed=50 skipped=0
+
+[MAIN] >>> Header file=50 samples=6036 <<<
+[MAIN] Snapshot file=50 done in 2 ms (buffer_pos=6036)
+
+[WORK] === Processing snapshot file=50 (collected=51) ===
+[WORK] Feature extraction time: 99 ms
+[WORK] Window integrity: 100% (6036/6036 samples)
+[WORK] Kurtosis: [3.5384, 3.5587, 3.2433]
+[WORK] Skewness: [0.8047, 0.3494, 0.4566]
+[gboost_int8] residuals=[-0.482750, -0.012489, 0.029524] score=0.034285 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.03429
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 156 ms (snap_delay=8 ms)
+[WORK] Stats: collected=51 processed=51 skipped=0
+
+[MAIN] >>> Header file=51 samples=9000 <<<
+[MAIN] Snapshot file=51 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=51 (collected=52) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [3.0397, 4.3142, 3.7088]
+[WORK] Skewness: [0.0331, -0.2942, -0.5180]
+[gboost_int8] residuals=[-0.536389, -0.012489, 0.059048] score=0.010170 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.01017
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 206 ms (snap_delay=9 ms)
+[WORK] Stats: collected=52 processed=52 skipped=0
+
+[MAIN] >>> Header file=52 samples=9000 <<<
+[MAIN] Snapshot file=52 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=52 (collected=53) ===
+[WORK] Feature extraction time: 150 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [5.8017, 4.2118, 4.4237]
+[WORK] Skewness: [0.8158, 0.2873, -0.4279]
+[gboost_int8] residuals=[-0.482750, -0.012489, 0.044286] score=0.049047 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.04905
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 206 ms (snap_delay=8 ms)
+[WORK] Stats: collected=53 processed=53 skipped=0
+
+[MAIN] >>> Header file=53 samples=4672 <<<
+[MAIN] Snapshot file=53 done in 2 ms (buffer_pos=4672)
+
+[WORK] === Processing snapshot file=53 (collected=54) ===
+[WORK] Feature extraction time: 76 ms
+[WORK] Window integrity: 100% (4672/4672 samples)
+[WORK] Kurtosis: [6.9960, 7.6397, 6.5703]
+[WORK] Skewness: [0.2964, 2.0318, 1.2310]
+[gboost_int8] residuals=[-0.489455, -0.012489, 0.206669] score=0.204725 label=0
+[WORK] Inference time: 14 ms
+[WORK] Inference: model=fnn_gboost_int8 label=0 score=0.20473
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 132 ms (snap_delay=8 ms)
+[WORK] Stats: collected=54 processed=54 skipped=0
+
+[MAIN] >>> Header file=54 samples=9000 <<<
+[MAIN] Snapshot file=54 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=54 (collected=55) ===
+[WORK] Feature extraction time: 142 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.2175, 22.6364, 21.5437]
+[WORK] Skewness: [3.9796, 3.9760, 3.8590]
+[gboost_int8] residuals=[0.422406, 0.008326, 0.029524] score=0.960257 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_gboost_int8 label=1 score=0.96026
+[WORK] >>> VALID: file=54 label=1, backup 9000 samples ready for BLE <<<
+[WORK] Total work time: 200 ms (snap_delay=8 ms)
+[WORK] Stats: collected=55 processed=55 skipped=0

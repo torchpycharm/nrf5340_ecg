@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nRF5340 数据波形</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --accent: #22d3ee;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --danger: #f43f5e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: "Segoe UI", "PingFang SC", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 20% 20%, #0b1220, #0a0f1c 45%),
+        radial-gradient(circle at 80% 0%, #0a1a2f, #0a0f1c 40%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    #status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.2px;
+    }
+
+    #status .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--muted);
+      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.04);
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    canvas {
+      width: 100%;
+      height: 340px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+      margin-top: 16px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .chip {
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .controls {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: var(--accent);
+      color: #0b1220;
+      border: none;
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.08s ease, filter 0.2s ease;
+    }
+
+    button:hover {
+      filter: brightness(1.05);
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div style="display:flex; justify-content: space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+      <div>
+        <h1>nRF5340 网络核数据监视器</h1>
+        <div style="color:var(--muted); font-size:14px;">通过 EventSource(SSE) 实时接收并绘制波形</div>
+      </div>
+      <div id="status"><span class="dot"></span><span id="status-text">等待连接…</span></div>
+    </div>
+
+    <canvas id="scope" width="1100" height="340"></canvas>
+
+    <div class="meta">
+      <div class="chip">采样点：<span id="count">0</span></div>
+      <div class="chip">当前值：<span id="current">-</span></div>
+      <div class="chip">最小值：<span id="min">-</span></div>
+      <div class="chip">最大值：<span id="max">-</span></div>
+      <div class="chip">当前文件ID：<span id="fileid">-</span></div>
+      <div class="chip">刷新率：<span id="fps">0</span> fps</div>
+    </div>
+
+    <div class="controls">
+      <button id="pause">暂停</button>
+      <button id="resume" disabled>继续</button>
+      <button id="clear">清空缓冲</button>
+    </div>
+  </div>
+
+  <script>
+    const scope = document.getElementById('scope');
+    const ctx = scope.getContext('2d');
+    const statusDot = document.querySelector('#status .dot');
+    const statusText = document.getElementById('status-text');
+    const countEl = document.getElementById('count');
+    const currentEl = document.getElementById('current');
+    const minEl = document.getElementById('min');
+    const maxEl = document.getElementById('max');
+    const fileIdEl = document.getElementById('fileid');
+    const fpsEl = document.getElementById('fps');
+    const pauseBtn = document.getElementById('pause');
+    const resumeBtn = document.getElementById('resume');
+    const clearBtn = document.getElementById('clear');
+
+    const buffer = [];
+    const maxPoints = 900; // 固定 900 点窗口
+    let lastFrame = performance.now();
+    let frameCount = 0; let fps = 0;
+    let paused = false;
+    let es;
+
+    function setStatus(connected) {
+      statusDot.style.background = connected ? '#10b981' : '#f59e0b';
+      statusDot.style.boxShadow = connected ? '0 0 0 6px rgba(16,185,129,0.15)' : '0 0 0 6px rgba(245,158,11,0.12)';
+      statusText.textContent = connected ? '已连接 (SSE)' : '等待连接…';
+    }
+
+    function connect() {
+      es = new EventSource('/events');
+      es.onopen = () => setStatus(true);
+      es.onerror = () => setStatus(false);
+      es.onmessage = (ev) => {
+        if (paused) return;
+        try {
+          const payload = JSON.parse(ev.data);
+          const { t, v, file } = payload;
+
+          if (typeof file !== 'undefined') {
+            fileIdEl.textContent = String(file);
+          }
+
+          buffer.push({ t, v });
+          if (buffer.length > maxPoints) buffer.shift();
+          currentEl.textContent = v.toFixed(3);
+          countEl.textContent = buffer.length;
+        } catch (e) {
+          console.error('Bad payload', e, ev.data);
+        }
+      };
+    }
+
+    function draw() {
+      requestAnimationFrame(draw);
+      const now = performance.now();
+      frameCount++;
+      if (now - lastFrame > 1000) {
+        fps = Math.round((frameCount * 1000) / (now - lastFrame));
+        fpsEl.textContent = fps;
+        frameCount = 0;
+        lastFrame = now;
+      }
+
+      ctx.clearRect(0, 0, scope.width, scope.height);
+      if (buffer.length < 2) return;
+
+      const paddingLeft = 56;
+      const padding = 16;
+      const w = scope.width - paddingLeft - padding;
+      const h = scope.height - padding * 2;
+      const values = buffer.map(p => p.v);
+      const minVraw = Math.min(...values);
+      const maxVraw = Math.max(...values);
+      const rangeRaw = maxVraw - minVraw || 1;
+      const margin = rangeRaw * 0.05 + 1e-6; // 上下 5% 余量
+      const minV = minVraw - margin;
+      const maxV = maxVraw + margin;
+      const range = maxV - minV || 1;
+
+      ctx.save();
+      ctx.translate(paddingLeft, padding);
+
+      // grid & y-axis
+      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+      ctx.lineWidth = 1;
+      const gridLines = 6;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(0, h);
+      ctx.stroke(); // y-axis line
+      for (let i = 0; i <= gridLines; i++) {
+        const y = (h / gridLines) * i;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+
+        // y-axis labels，随数据动态变化
+        const val = maxV - (range * i) / gridLines;
+        ctx.fillStyle = 'rgba(255,255,255,0.65)';
+        ctx.font = '12px \"Segoe UI\", \"PingFang SC\", sans-serif';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(val.toFixed(1), -6, y);
+      }
+
+      // waveform
+      ctx.lineWidth = 2;
+      const grd = ctx.createLinearGradient(0, 0, 0, h);
+      grd.addColorStop(0, 'rgba(34, 211, 238, 0.95)');
+      grd.addColorStop(1, 'rgba(34, 211, 238, 0.35)');
+      ctx.strokeStyle = grd;
+
+      ctx.beginPath();
+      buffer.forEach((p, idx) => {
+        const x = (idx / (buffer.length - 1)) * w;
+        const y = h - ((p.v - minV) / range) * h;
+        if (idx === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+
+      // fill under curve for a softer look
+      ctx.lineTo(w, h);
+      ctx.lineTo(0, h);
+      ctx.closePath();
+      const fill = ctx.createLinearGradient(0, 0, 0, h);
+      fill.addColorStop(0, 'rgba(34, 211, 238, 0.18)');
+      fill.addColorStop(1, 'rgba(34, 211, 238, 0.02)');
+      ctx.fillStyle = fill;
+      ctx.fill();
+
+      ctx.restore();
+
+      // 用当前窗口最小/最大更新显示
+      minEl.textContent = minVraw.toFixed(3);
+      maxEl.textContent = maxVraw.toFixed(3);
+    }
+
+    pauseBtn.onclick = () => { paused = true; pauseBtn.disabled = true; resumeBtn.disabled = false; };
+    resumeBtn.onclick = () => { paused = false; pauseBtn.disabled = false; resumeBtn.disabled = true; };
+    clearBtn.onclick = () => {
+      buffer.length = 0;
+      countEl.textContent = '0';
+      currentEl.textContent = '-';
+      minEl.textContent = '-';
+      maxEl.textContent = '-';
+      fileIdEl.textContent = '-';
+    };
+
+    connect();
+    draw();
+  </script>
+</body>
+
+</html>

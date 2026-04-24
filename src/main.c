@@ -17,9 +17,12 @@
 #include "uart_sample_rx.h"
 #include "ecg_buffer.h"
 #include "ecg_processing.h"
-#include "feature_extraction.h"
 #include "ble_output.h"
+
+#if !IS_ENABLED(CONFIG_ECG_RAW_BLE_MODE)
+#include "feature_extraction.h"
 #include "models/model_runtime.h"
+#endif
 
 LOG_MODULE_REGISTER(app, LOG_LEVEL_INF);
 
@@ -28,13 +31,25 @@ LOG_MODULE_REGISTER(app, LOG_LEVEL_INF);
 #define WINDOW_SEC          30
 #define ECG_BUFFER_SIZE     200   /* 扩大缓冲区，覆盖快照memcpy期间ISR写入 */
 #define BLE_QUEUE_SIZE      10
-#define ENABLE_BLE_OUTPUT   1
-
-/* 当前默认模型 */
-#define ACTIVE_MODEL        ECG_MODEL_FNN_GBOOST_FLOAT
+#define ENABLE_BLE_OUTPUT   0
 
 /* ===== 主循环收集用对象 ===== */
 static ecg_buffer_t ecg_buffer;
+
+#if IS_ENABLED(CONFIG_ECG_RAW_BLE_MODE)
+/* ===== Raw BLE passthrough: 仅需一个样本缓冲区 ===== */
+static int16_t raw_buffer[BLE_OUTPUT_MAX_WINDOW_SAMPLES];
+static uint32_t raw_buffer_pos;
+static uint32_t raw_target_samples;
+static uint32_t raw_windows_collected;
+static uint32_t raw_windows_submitted;
+static uint32_t raw_windows_skipped;
+
+#else /* Normal processing mode */
+
+/* 当前默认模型 */
+#define ACTIVE_MODEL        ECG_MODEL_BIN_I8_SVM
+
 static window_manager_t window_mgr;
 static feature_extraction_t feature_eng;
 static ecg_model_runtime_t model_runtime;
@@ -114,7 +129,29 @@ static void process_work_handler(struct k_work *work)
     if (ret == 0 && snap_integrity.is_valid && infer_out.label == 1) {
         printk("[WORK] >>> VALID: file=%u label=1, backup %u samples ready for BLE <<<\n",
                snap_file_id, snap_feature_eng.buffer_pos);
-        /* TODO: 蓝牙发送 snap_feature_eng.buffer[] 数据 */
+
+#if ENABLE_BLE_OUTPUT
+        int ble_ret = ble_output_submit_window(
+            snap_file_id,
+            snap_feature_eng.buffer,
+            snap_feature_eng.buffer_pos,
+            ECG_FS,
+            (uint8_t)snap_integrity.integrity_percent,
+            infer_out.label
+        );
+
+        if (ble_ret == 0) {
+            printk("[WORK] BLE submit OK: file=%u samples=%u connected=%d\n",
+                   snap_file_id,
+                   snap_feature_eng.buffer_pos,
+                   ble_output_is_connected() ? 1 : 0);
+        } else if (ble_ret == -EBUSY) {
+            printk("[WORK] BLE submit BUSY: previous window still sending, file=%u skipped\n",
+                   snap_file_id);
+        } else {
+            printk("[WORK] BLE submit failed: %d (file=%u)\n", ble_ret, snap_file_id);
+        }
+#endif
     } else {
         printk("[WORK] Window not sent: integrity=%u%% label=%d ret=%d\n",
                snap_integrity.integrity_percent,
@@ -133,17 +170,14 @@ static void process_work_handler(struct k_work *work)
     k_sem_give(&snap_sem);
 }
 
+#endif /* !CONFIG_ECG_RAW_BLE_MODE */
+
 /**
  * @brief 主程序
  */
 int main(void)
 {
     printk("=== NRF5340 ECG Application Start ===\n");
-    printk("\n\n========================================\n");
-    printk("   NRF5340 ECG Async Snapshot Demo\n");
-    printk("   Sam: %u Hz, Window: %u sec\n", ECG_FS, WINDOW_SEC);
-    printk("   ECG Buffer: %u slots\n", ECG_BUFFER_SIZE);
-    printk("========================================\n\n");
 
     int ret = ecg_buffer_init(&ecg_buffer, ECG_BUFFER_SIZE);
     if (ret != 0) {
@@ -156,6 +190,128 @@ int main(void)
         printk("Failed to init UART RX: %d\n", ret);
         return ret;
     }
+
+#if IS_ENABLED(CONFIG_ECG_RAW_BLE_MODE)
+    /* ===== Raw BLE passthrough mode ===== */
+    printk("Mode: RAW BLE PASSTHROUGH (no processing)\n");
+
+    ret = ble_output_init(BLE_QUEUE_SIZE);
+    if (ret != 0) {
+        printk("Failed to init BLE output: %d\n", ret);
+        return ret;
+    }
+
+    ret = ble_output_start();
+    if (ret != 0) {
+        printk("Failed to start BLE stack: %d\n", ret);
+        return ret;
+    }
+
+    printk("BLE ready, waiting for connection...\n");
+
+    raw_windows_collected = 0;
+    raw_windows_submitted = 0;
+    raw_windows_skipped = 0;
+
+    ecg_sample_t sample;
+    bool window_active = false;
+    uint16_t current_file_id = 0;
+
+    while (1) {
+        uart_window_header_t header;
+        if (uart_sample_rx_try_get_window_header(&header)) {
+            if (window_active) {
+                printk("[RAW] Header file=%u IGNORED (busy file=%u)\n",
+                       header.file_id, current_file_id);
+            } else {
+                if (header.sample_count == 0 ||
+                    header.sample_count > BLE_OUTPUT_MAX_WINDOW_SAMPLES) {
+                    printk("[RAW] Invalid sample count: %u\n", header.sample_count);
+                    continue;
+                }
+                raw_target_samples = header.sample_count;
+                raw_buffer_pos = 0;
+                current_file_id = header.file_id;
+                window_active = true;
+                printk("[RAW] Header file=%u samples=%u\n",
+                       header.file_id, header.sample_count);
+            }
+        }
+
+        if (!window_active) {
+            k_sleep(K_USEC(100));
+            continue;
+        }
+
+        int pop_ret = ecg_buffer_pop(&ecg_buffer, &sample);
+        if (pop_ret == -ENODATA) {
+            k_sleep(K_USEC(100));
+            continue;
+        }
+
+        if (raw_buffer_pos < raw_target_samples) {
+            raw_buffer[raw_buffer_pos++] = sample.ecg_data;
+        }
+
+        if (raw_buffer_pos >= raw_target_samples) {
+            /* 窗口收满，直接提交 BLE 发送 */
+             uint32_t raw_t0 = k_uptime_get_32();
+             raw_windows_collected++;
+
+             if (IS_ENABLED(CONFIG_ECG_RAW_BLE_BASELINE)) {
+              printk("\n[WORK] === Processing snapshot file=%u (collected=%u) ===\n",
+                  current_file_id, raw_windows_collected);
+              printk("[WORK] Feature extraction time: 0 ms\n");
+              printk("[WORK] Window integrity: 100%% (%u/%u samples)\n",
+                  raw_buffer_pos, raw_target_samples);
+              printk("[WORK] Kurtosis: [0.0000, 0.0000, 0.0000]\n");
+              printk("[WORK] Skewness: [0.0000, 0.0000, 0.0000]\n");
+              printk("[WORK] Inference time: 0 ms\n");
+              printk("[WORK] Inference: model=RAW_BASELINE label=1 score=0.00000\n");
+             }
+
+            printk("[RAW] Window done: file=%u samples=%u, submitting BLE...\n",
+                   current_file_id, raw_buffer_pos);
+
+            int ble_ret = ble_output_submit_window(
+                current_file_id,
+                raw_buffer,
+                raw_buffer_pos,
+                ECG_FS,
+                100,    /* raw模式下integrity固定100% */
+                0       /* raw模式下model_output=0(未推理) */
+            );
+
+            if (ble_ret == 0) {
+                raw_windows_submitted++;
+                printk("[RAW] BLE submit OK: file=%u\n", current_file_id);
+            } else if (ble_ret == -EBUSY) {
+                raw_windows_skipped++;
+                printk("[RAW] BLE BUSY: file=%u skipped\n", current_file_id);
+            } else {
+                printk("[RAW] BLE submit failed: %d\n", ble_ret);
+            }
+
+            if (IS_ENABLED(CONFIG_ECG_RAW_BLE_BASELINE)) {
+                uint32_t raw_t1 = k_uptime_get_32();
+                printk("[WORK] Total work time: %u ms\n", (raw_t1 - raw_t0));
+                printk("[WORK] Stats: collected=%u processed=%u skipped=%u\n",
+                       raw_windows_collected,
+                       raw_windows_submitted,
+                       raw_windows_skipped);
+            }
+
+            window_active = false;
+        }
+    }
+
+#else /* Normal processing mode */
+
+    printk("\n\n========================================\n");
+    printk("   NRF5340 ECG Async Snapshot Demo\n");
+    printk("   Sam: %u Hz, Window: %u sec\n", ECG_FS, WINDOW_SEC);
+    printk("   ECG Buffer: %u slots\n", ECG_BUFFER_SIZE);
+    printk("========================================\n\n");
 
     window_manager_init(&window_mgr, ECG_FS, WINDOW_SEC);
     feature_extraction_init(&feature_eng, ECG_FS, WINDOW_SEC);
@@ -173,6 +329,14 @@ int main(void)
         printk("Failed to init BLE output: %d\n", ret);
         return ret;
     }
+
+    ret = ble_output_start();
+    if (ret != 0) {
+        printk("Failed to start BLE stack: %d\n", ret);
+        return ret;
+    }
+
+    printk("BLE stream ready, waiting for central connection...\n");
 #endif
 
     /* 初始化工作项 */
@@ -274,8 +438,10 @@ int main(void)
         /* 提交到系统工作队列（不阻塞主循环） */
         k_work_submit(&process_work);
 
-        printk("[MAIN] Work submitted, resuming collection...\n");
+        //printk("[MAIN] Work submitted, resuming collection...\n");
     }
+
+#endif /* CONFIG_ECG_RAW_BLE_MODE */
 
     return 0;
 }

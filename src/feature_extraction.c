@@ -59,7 +59,7 @@ void process_window(feature_extraction_t *e)
         return;
     }
 
-    printk("Processing window with %u samples...\n", N);
+    //printk("Processing window with %u samples...\n", N);
 
     /* 步骤1: 去均值 */
     double sum = 0.0;

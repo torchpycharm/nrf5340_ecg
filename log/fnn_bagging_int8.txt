@@ -1,0 +1,961 @@
+[MAIN] Snapshot file=0 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=0 (collected=1) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [10.8975, 8.7331, 7.4522]
+[WORK] Skewness: [2.1068, -1.3180, 0.4098]
+[bagging_int8] probs=[0.02734, 0.09375, 0.07812] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.06641
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 210 ms (snap_delay=8 ms)
+[WORK] Stats: collected=1 processed=1 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=1 samples=3760 <<<
+[MAIN] Snapshot file=1 done in 2 ms (buffer_pos=3760)
+
+[WORK] === Processing snapshot file=1 (collected=2) ===
+Processing window with 3760 samples...
+[WORK] Feature extraction time: 64 ms
+[WORK] Window integrity: 100% (3760/3760 samples)
+[WORK] Kurtosis: [6.5835, 15.1835, 22.1685]
+[WORK] Skewness: [1.1802, -3.2166, -4.2518]
+[bagging_int8] probs=[0.25781, 0.50000, 0.20312] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.32031
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 121 ms (snap_delay=8 ms)
+[WORK] Stats: collected=2 processed=2 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=2 samples=9000 <<<
+[MAIN] Snapshot file=2 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=2 (collected=3) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.0707, 26.9434, 25.4471]
+[WORK] Skewness: [-4.1169, -4.3014, -4.2131]
+[bagging_int8] probs=[0.51953, 0.90625, 0.85156] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.75911
+[WORK] >>> VALID: file=2 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit OK: file=2 samples=9000 connected=1
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=3 processed=3 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=3 samples=9000 <<<
+[MAIN] Snapshot file=3 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=3 (collected=4) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [12.6671, 15.0169, 13.8965]
+[WORK] Skewness: [2.8538, 3.1476, 3.0215]
+[bagging_int8] probs=[0.89062, 0.90625, 0.81250] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.86979
+[WORK] >>> VALID: file=3 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=3 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=4 processed=4 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=4 samples=9000 <<<
+[MAIN] Snapshot file=4 done in 1 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=4 (collected=5) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [22.5181, 24.6325, 23.8160]
+[WORK] Skewness: [4.0694, 4.2414, 4.2011]
+[bagging_int8] probs=[0.98828, 0.97656, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96615
+[WORK] >>> VALID: file=4 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=4 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=5 processed=5 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=5 samples=9000 <<<
+[MAIN] Snapshot file=5 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=5 (collected=6) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [12.7955, 3.8608, 11.3074]
+[WORK] Skewness: [-2.0027, -0.4592, -1.4440]
+[bagging_int8] probs=[0.11328, 0.12109, 0.02734] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.08724
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=6 processed=6 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=6 samples=9000 <<<
+[MAIN] Snapshot file=6 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=6 (collected=7) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [10.9811, 12.8089, 12.6454]
+[WORK] Skewness: [-2.5149, -2.7151, -2.7149]
+[bagging_int8] probs=[0.24609, 0.46484, 0.20312] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.30469
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=7 processed=7 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=7 samples=9000 <<<
+[MAIN] Snapshot file=7 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=7 (collected=8) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [20.7974, 31.0212, 25.6608]
+[WORK] Skewness: [3.2484, 4.3794, 4.0744]
+[bagging_int8] probs=[0.97266, 0.82422, 0.81250] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.86979
+[WORK] >>> VALID: file=7 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=7 skipped
+[WORK] Total work time: 219 ms (snap_delay=8 ms)
+[WORK] Stats: collected=8 processed=8 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=8 samples=9000 <<<
+[MAIN] Snapshot file=8 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=8 (collected=9) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [19.1142, 23.2515, 22.0658]
+[WORK] Skewness: [-3.6639, -4.0017, -4.0223]
+[bagging_int8] probs=[0.51953, 0.89062, 0.83984] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.75000
+[WORK] >>> VALID: file=8 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=8 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=9 processed=9 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=9 samples=3116 <<<
+[MAIN] Snapshot file=9 done in 2 ms (buffer_pos=3116)
+
+[WORK] === Processing snapshot file=9 (collected=10) ===
+Processing window with 3116 samples...
+[WORK] Feature extraction time: 53 ms
+[WORK] Window integrity: 100% (3116/3116 samples)
+[WORK] Kurtosis: [3.6207, 5.4597, 3.7830]
+[WORK] Skewness: [-0.0010, -1.6721, -0.0972]
+[bagging_int8] probs=[0.04297, 0.05078, 0.02734] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.04036
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 110 ms (snap_delay=8 ms)
+[WORK] Stats: collected=10 processed=10 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=10 samples=9000 <<<
+[MAIN] Snapshot file=10 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=10 (collected=11) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [3.6880, 3.8771, 3.5750]
+[WORK] Skewness: [0.1802, -0.2243, 0.0916]
+[bagging_int8] probs=[0.03125, 0.02734, 0.01562] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.02474
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=11 processed=11 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=11 samples=9000 <<<
+[MAIN] Snapshot file=11 done in 1 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=11 (collected=12) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [21.9988, 22.9530, 24.4418]
+[WORK] Skewness: [3.9585, 4.1937, 4.3753]
+[bagging_int8] probs=[0.98828, 0.98047, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96745
+[WORK] >>> VALID: file=11 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=11 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=12 processed=12 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=12 samples=9000 <<<
+[MAIN] Snapshot file=12 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=12 (collected=13) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [23.9901, 22.7482, 24.0447]
+[WORK] Skewness: [4.0494, 4.0787, 4.2261]
+[bagging_int8] probs=[0.98047, 0.97656, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96354
+[WORK] >>> VALID: file=12 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=12 skipped
+[WORK] Total work time: 221 ms (snap_delay=9 ms)
+[WORK] Stats: collected=13 processed=13 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=13 samples=3931 <<<
+[MAIN] Snapshot file=13 done in 2 ms (buffer_pos=3931)
+
+[WORK] === Processing snapshot file=13 (collected=14) ===
+Processing window with 3931 samples...
+[WORK] Feature extraction time: 67 ms
+[WORK] Window integrity: 100% (3931/3931 samples)
+[WORK] Kurtosis: [4.2741, 8.5375, 10.8692]
+[WORK] Skewness: [0.7583, -1.8572, -2.2830]
+[bagging_int8] probs=[0.10937, 0.13672, 0.03906] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.09505
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 124 ms (snap_delay=8 ms)
+[WORK] Stats: collected=14 processed=14 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=14 samples=3676 <<<
+[MAIN] Snapshot file=14 done in 2 ms (buffer_pos=3676)
+
+[WORK] === Processing snapshot file=14 (collected=15) ===
+Processing window with 3676 samples...
+[WORK] Feature extraction time: 63 ms
+[WORK] Window integrity: 100% (3676/3676 samples)
+[WORK] Kurtosis: [3.1971, 3.3944, 2.6458]
+[WORK] Skewness: [-0.2588, 0.4384, 0.5254]
+[bagging_int8] probs=[0.02344, 0.05078, 0.01172] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.02865
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 119 ms (snap_delay=8 ms)
+[WORK] Stats: collected=15 processed=15 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=15 samples=9000 <<<
+[MAIN] Snapshot file=15 done in 1 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=15 (collected=16) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [3.9973, 9.6226, 6.8000]
+[WORK] Skewness: [-1.1908, -1.8473, -1.2271]
+[bagging_int8] probs=[0.07422, 0.13672, 0.05469] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.08854
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=16 processed=16 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=16 samples=9000 <<<
+[MAIN] Snapshot file=16 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=16 (collected=17) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [23.5440, 23.5105, 23.7510]
+[WORK] Skewness: [-4.2152, -4.2203, -4.2569]
+[bagging_int8] probs=[0.51953, 0.92578, 0.86328] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.76953
+[WORK] >>> VALID: file=16 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=16 skipped
+[WORK] Total work time: 221 ms (snap_delay=8 ms)
+[WORK] Stats: collected=17 processed=17 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=17 samples=9000 <<<
+[MAIN] Snapshot file=17 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=17 (collected=18) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [9.2347, 8.5589, 6.4018]
+[WORK] Skewness: [1.4280, -1.2071, -0.3019]
+[bagging_int8] probs=[0.03906, 0.09375, 0.07422] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.06901
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=18 processed=18 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=18 samples=9000 <<<
+[MAIN] Snapshot file=18 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=18 (collected=19) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [5.4629, 5.2075, 3.3774]
+[WORK] Skewness: [0.2998, 0.1603, -0.0843]
+[bagging_int8] probs=[0.03906, 0.03906, 0.02344] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.03385
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=19 processed=19 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=19 samples=9000 <<<
+[MAIN] Snapshot file=19 done in 1 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=19 (collected=20) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [3.4343, 4.0046, 4.4412]
+[WORK] Skewness: [0.5437, 0.0374, 0.7282]
+[bagging_int8] probs=[0.03125, 0.05469, 0.02734] votes=0 label=0
+[WORK] Inference time: 12 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.03776
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=20 processed=20 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=20 samples=9000 <<<
+[MAIN] Snapshot file=20 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=20 (collected=21) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [18.0183, 18.5100, 17.8082]
+[WORK] Skewness: [3.5516, 3.6604, 3.5210]
+[bagging_int8] probs=[0.97656, 0.97656, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96224
+[WORK] >>> VALID: file=20 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=20 skipped
+[WORK] Total work time: 221 ms (snap_delay=8 ms)
+[WORK] Stats: collected=21 processed=21 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=21 samples=9000 <<<
+[MAIN] Snapshot file=21 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=21 (collected=22) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [21.0367, 26.8370, 22.1191]
+[WORK] Skewness: [3.8470, 4.4836, 4.0036]
+[bagging_int8] probs=[0.98828, 0.97656, 0.90625] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.95703
+[WORK] >>> VALID: file=21 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=21 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=22 processed=22 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=22 samples=9000 <<<
+[MAIN] Snapshot file=22 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=22 (collected=23) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [22.4273, 23.1884, 23.3435]
+[WORK] Skewness: [3.8848, 3.9228, 4.0029]
+[bagging_int8] probs=[0.97656, 0.97266, 0.93359] votes=3 label=1
+[WORK] Inference time: 12 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96094
+[WORK] >>> VALID: file=22 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=22 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=23 processed=23 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=23 samples=6024 <<<
+[MAIN] Snapshot file=23 done in 2 ms (buffer_pos=6024)
+
+[WORK] === Processing snapshot file=23 (collected=24) ===
+Processing window with 6024 samples...
+[WORK] Feature extraction time: 103 ms
+[WORK] Window integrity: 100% (6024/6024 samples)
+[WORK] Kurtosis: [6.4215, 5.8879, 13.5931]
+[WORK] Skewness: [0.9898, 0.9287, -2.4091]
+[bagging_int8] probs=[0.09375, 0.08203, 0.03516] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.07031
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 159 ms (snap_delay=9 ms)
+[WORK] Stats: collected=24 processed=24 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=24 samples=9000 <<<
+[MAIN] Snapshot file=24 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=24 (collected=25) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.2341, 23.8445, 25.6234]
+[WORK] Skewness: [-4.2646, -4.2695, -4.4529]
+[bagging_int8] probs=[0.51953, 0.92578, 0.86328] votes=3 label=1
+[WORK] Inference time: 12 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.76953
+[WORK] >>> VALID: file=24 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=24 skipped
+[WORK] Total work time: 220 ms (snap_delay=9 ms)
+[WORK] Stats: collected=25 processed=25 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=25 samples=9000 <<<
+[MAIN] Snapshot file=25 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=25 (collected=26) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [12.3959, 5.2987, 3.9186]
+[WORK] Skewness: [2.4509, -0.5983, -0.8934]
+[bagging_int8] probs=[0.02344, 0.06641, 0.01953] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.03646
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 210 ms (snap_delay=8 ms)
+[WORK] Stats: collected=26 processed=26 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=26 samples=9000 <<<
+[MAIN] Snapshot file=26 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=26 (collected=27) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [15.4257, 20.6099, 20.8710]
+[WORK] Skewness: [3.2280, 3.9278, 4.0240]
+[bagging_int8] probs=[0.97656, 0.96875, 0.92578] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.95703
+[WORK] >>> VALID: file=26 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=26 skipped
+[WORK] Total work time: 221 ms (snap_delay=8 ms)
+[WORK] Stats: collected=27 processed=27 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=27 samples=10518 <<<
+[MAIN] Snapshot file=27 done in 2 ms (buffer_pos=10518)
+
+[WORK] === Processing snapshot file=27 (collected=28) ===
+Processing window with 10518 samples...
+[WORK] Feature extraction time: 179 ms
+[WORK] Window integrity: 100% (10518/10518 samples)
+[WORK] Kurtosis: [3.5710, 7.8452, 3.0893]
+[WORK] Skewness: [-0.3812, 1.5076, 0.2438]
+[bagging_int8] probs=[0.02734, 0.09375, 0.01562] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.04557
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 236 ms (snap_delay=8 ms)
+[WORK] Stats: collected=28 processed=28 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=28 samples=4174 <<<
+[MAIN] Snapshot file=28 done in 2 ms (buffer_pos=4174)
+
+[WORK] === Processing snapshot file=28 (collected=29) ===
+Processing window with 4174 samples...
+[WORK] Feature extraction time: 71 ms
+[WORK] Window integrity: 100% (4174/4174 samples)
+[WORK] Kurtosis: [3.0059, 8.8154, 6.6268]
+[WORK] Skewness: [0.7198, 1.8862, 0.1416]
+[bagging_int8] probs=[0.03906, 0.13672, 0.02734] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.06771
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 128 ms (snap_delay=8 ms)
+[WORK] Stats: collected=29 processed=29 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=29 samples=9000 <<<
+[MAIN] Snapshot file=29 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=29 (collected=30) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [21.8260, 21.3304, 21.3965]
+[WORK] Skewness: [3.9375, 3.9769, 4.0116]
+[bagging_int8] probs=[0.98047, 0.97656, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96354
+[WORK] >>> VALID: file=29 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=29 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=30 processed=30 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=30 samples=5376 <<<
+[MAIN] Snapshot file=30 done in 2 ms (buffer_pos=5376)
+
+[WORK] === Processing snapshot file=30 (collected=31) ===
+Processing window with 5376 samples...
+[WORK] Feature extraction time: 92 ms
+[WORK] Window integrity: 100% (5376/5376 samples)
+[WORK] Kurtosis: [26.7280, 18.4005, 5.8439]
+[WORK] Skewness: [-3.5605, -3.3092, -0.6203]
+[bagging_int8] probs=[0.21875, 0.80469, 0.64062] votes=2 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.55469
+[WORK] >>> VALID: file=30 label=1, backup 5376 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=30 skipped
+[WORK] Total work time: 159 ms (snap_delay=8 ms)
+[WORK] Stats: collected=31 processed=31 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=31 samples=4008 <<<
+[MAIN] Snapshot file=31 done in 2 ms (buffer_pos=4008)
+
+[WORK] === Processing snapshot file=31 (collected=32) ===
+Processing window with 4008 samples...
+[WORK] Feature extraction time: 69 ms
+[WORK] Window integrity: 100% (4008/4008 samples)
+[WORK] Kurtosis: [4.4360, 3.3565, 3.7511]
+[WORK] Skewness: [0.9004, 0.0134, 0.3063]
+[bagging_int8] probs=[0.03125, 0.03906, 0.01953] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.02995
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 124 ms (snap_delay=9 ms)
+[WORK] Stats: collected=32 processed=32 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=32 samples=9000 <<<
+[MAIN] Snapshot file=32 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=32 (collected=33) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [28.1502, 27.0409, 24.4474]
+[WORK] Skewness: [4.7941, 4.6215, 4.3609]
+[bagging_int8] probs=[0.97656, 0.97656, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96224
+[WORK] >>> VALID: file=32 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=32 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=33 processed=33 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=33 samples=9000 <<<
+[MAIN] Snapshot file=33 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=33 (collected=34) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.1352, 24.4900, 24.9700]
+[WORK] Skewness: [4.2272, 4.2999, 4.4220]
+[bagging_int8] probs=[0.98828, 0.98047, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96745
+[WORK] >>> VALID: file=33 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=33 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=34 processed=34 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=34 samples=9000 <<<
+[MAIN] Snapshot file=34 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=34 (collected=35) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [15.4525, 16.5278, 15.0277]
+[WORK] Skewness: [3.1146, 3.2501, 3.0732]
+[bagging_int8] probs=[0.94531, 0.93359, 0.89453] votes=3 label=1
+[WORK] Inference time: 12 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.92448
+[WORK] >>> VALID: file=34 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=34 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=35 processed=35 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=35 samples=3222 <<<
+[MAIN] Snapshot file=35 done in 2 ms (buffer_pos=3222)
+
+[WORK] === Processing snapshot file=35 (collected=36) ===
+Processing window with 3222 samples...
+[WORK] Feature extraction time: 55 ms
+[WORK] Window integrity: 100% (3222/3222 samples)
+[WORK] Kurtosis: [3.9348, 10.9060, 16.8003]
+[WORK] Skewness: [0.8346, 1.9673, -2.9995]
+[bagging_int8] probs=[0.11328, 0.13672, 0.07812] votes=0 label=0
+[WORK] Inference time: 12 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.10937
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 112 ms (snap_delay=8 ms)
+[WORK] Stats: collected=36 processed=36 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=36 samples=4692 <<<
+[MAIN] Snapshot file=36 done in 2 ms (buffer_pos=4692)
+
+[WORK] === Processing snapshot file=36 (collected=37) ===
+Processing window with 4692 samples...
+[WORK] Feature extraction time: 80 ms
+[WORK] Window integrity: 100% (4692/4692 samples)
+[WORK] Kurtosis: [51.6309, 12.9542, 46.4881]
+[WORK] Skewness: [-4.5354, 0.3597, -5.6490]
+[bagging_int8] probs=[0.51953, 0.90625, 0.00000] votes=2 label=1
+[WORK] Inference time: 12 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.47526
+[WORK] >>> VALID: file=36 label=1, backup 4692 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=36 skipped
+[WORK] Total work time: 147 ms (snap_delay=8 ms)
+[WORK] Stats: collected=37 processed=37 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=37 samples=3770 <<<
+[MAIN] Snapshot file=37 done in 2 ms (buffer_pos=3770)
+
+[WORK] === Processing snapshot file=37 (collected=38) ===
+Processing window with 3770 samples...
+[WORK] Feature extraction time: 64 ms
+[WORK] Window integrity: 100% (3770/3770 samples)
+[WORK] Kurtosis: [6.1116, 3.9711, 6.1054]
+[WORK] Skewness: [0.1964, -0.1210, 1.3530]
+[bagging_int8] probs=[0.05078, 0.06641, 0.04687] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.05469
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 120 ms (snap_delay=8 ms)
+[WORK] Stats: collected=38 processed=38 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=38 samples=8414 <<<
+[MAIN] Snapshot file=38 done in 2 ms (buffer_pos=8414)
+
+[WORK] === Processing snapshot file=38 (collected=39) ===
+Processing window with 8414 samples...
+[WORK] Feature extraction time: 144 ms
+[WORK] Window integrity: 100% (8414/8414 samples)
+[WORK] Kurtosis: [4.3767, 4.1144, 7.9849]
+[WORK] Skewness: [0.1966, -0.5497, 0.4499]
+[bagging_int8] probs=[0.05078, 0.03906, 0.02734] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.03906
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 199 ms (snap_delay=8 ms)
+[WORK] Stats: collected=39 processed=39 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=39 samples=9000 <<<
+[MAIN] Snapshot file=39 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=39 (collected=40) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [25.9460, 30.3916, 30.8044]
+[WORK] Skewness: [4.3586, 4.9163, 4.9678]
+[bagging_int8] probs=[0.99219, 0.96094, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96224
+[WORK] >>> VALID: file=39 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=39 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=40 processed=40 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=40 samples=9000 <<<
+[MAIN] Snapshot file=40 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=40 (collected=41) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [19.9529, 18.8127, 19.6090]
+[WORK] Skewness: [3.8110, 3.7064, 3.7742]
+[bagging_int8] probs=[0.98047, 0.97656, 0.92578] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96094
+[WORK] >>> VALID: file=40 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=40 skipped
+[WORK] Total work time: 221 ms (snap_delay=8 ms)
+[WORK] Stats: collected=41 processed=41 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=41 samples=9000 <<<
+[MAIN] Snapshot file=41 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=41 (collected=42) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [19.8742, 18.9564, 18.4359]
+[WORK] Skewness: [3.6477, 3.5450, 3.4960]
+[bagging_int8] probs=[0.96875, 0.96875, 0.92578] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.95443
+[WORK] >>> VALID: file=41 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=41 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=42 processed=42 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=42 samples=9000 <<<
+[MAIN] Snapshot file=42 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=42 (collected=43) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [20.4989, 19.0250, 21.2826]
+[WORK] Skewness: [3.7809, 3.6516, 3.9327]
+[bagging_int8] probs=[0.98047, 0.97656, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96354
+[WORK] >>> VALID: file=42 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=42 skipped
+[WORK] Total work time: 219 ms (snap_delay=9 ms)
+[WORK] Stats: collected=43 processed=43 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=43 samples=9000 <<<
+[MAIN] Snapshot file=43 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=43 (collected=44) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [53.1177, 11.0793, 9.4164]
+[WORK] Skewness: [5.9324, 2.3787, 0.8026]
+[bagging_int8] probs=[0.02734, 0.53516, 0.00000] votes=1 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.18750
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 210 ms (snap_delay=9 ms)
+[WORK] Stats: collected=44 processed=44 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=44 samples=9000 <<<
+[MAIN] Snapshot file=44 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=44 (collected=45) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [19.2548, 20.8618, 19.1659]
+[WORK] Skewness: [3.9722, 4.1175, 3.9640]
+[bagging_int8] probs=[0.98828, 0.98437, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96875
+[WORK] >>> VALID: file=44 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=44 skipped
+[WORK] Total work time: 220 ms (snap_delay=9 ms)
+[WORK] Stats: collected=45 processed=45 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=45 samples=9000 <<<
+[MAIN] Snapshot file=45 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=45 (collected=46) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [18.6669, 20.7702, 19.7629]
+[WORK] Skewness: [3.4306, 3.7682, 3.6859]
+[bagging_int8] probs=[0.97656, 0.97266, 0.93359] votes=3 label=1
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96094
+[WORK] >>> VALID: file=45 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=45 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=46 processed=46 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=46 samples=9000 <<<
+[MAIN] Snapshot file=46 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=46 (collected=47) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 154 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [7.6274, 5.6560, 5.7912]
+[WORK] Skewness: [-0.7099, -0.8859, -0.8677]
+[bagging_int8] probs=[0.07422, 0.08203, 0.04297] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.06641
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 210 ms (snap_delay=9 ms)
+[WORK] Stats: collected=47 processed=47 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=47 samples=9000 <<<
+[MAIN] Snapshot file=47 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=47 (collected=48) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [6.0122, 4.9438, 5.3203]
+[WORK] Skewness: [0.2479, 0.8675, 0.9260]
+[bagging_int8] probs=[0.03906, 0.09375, 0.03906] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.05729
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=48 processed=48 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=48 samples=9000 <<<
+[MAIN] Snapshot file=48 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=48 (collected=49) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [15.8920, 21.1229, 20.2346]
+[WORK] Skewness: [3.0280, 3.7865, 3.5154]
+[bagging_int8] probs=[0.96094, 0.96094, 0.90625] votes=3 label=1
+[WORK] Inference time: 12 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.94271
+[WORK] >>> VALID: file=48 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=48 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=49 processed=49 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=49 samples=9000 <<<
+[MAIN] Snapshot file=49 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=49 (collected=50) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.9071, 23.8403, 25.6602]
+[WORK] Skewness: [4.1649, 4.0641, 4.2876]
+[bagging_int8] probs=[0.97656, 0.97266, 0.93359] votes=3 label=1
+[WORK] Inference time: 12 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.96094
+[WORK] >>> VALID: file=49 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=49 skipped
+[WORK] Total work time: 220 ms (snap_delay=8 ms)
+[WORK] Stats: collected=50 processed=50 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=50 samples=6036 <<<
+[MAIN] Snapshot file=50 done in 2 ms (buffer_pos=6036)
+
+[WORK] === Processing snapshot file=50 (collected=51) ===
+Processing window with 6036 samples...
+[WORK] Feature extraction time: 103 ms
+[WORK] Window integrity: 100% (6036/6036 samples)
+[WORK] Kurtosis: [3.5384, 3.5587, 3.2433]
+[WORK] Skewness: [0.8047, 0.3494, 0.4566]
+[bagging_int8] probs=[0.02734, 0.05078, 0.01953] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.03255
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 159 ms (snap_delay=8 ms)
+[WORK] Stats: collected=51 processed=51 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=51 samples=9000 <<<
+[MAIN] Snapshot file=51 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=51 (collected=52) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [3.0397, 4.3142, 3.7088]
+[WORK] Skewness: [0.0331, -0.2942, -0.5180]
+[bagging_int8] probs=[0.03125, 0.03906, 0.01172] votes=0 label=0
+[WORK] Inference time: 12 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.02734
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 210 ms (snap_delay=8 ms)
+[WORK] Stats: collected=52 processed=52 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=52 samples=9000 <<<
+[MAIN] Snapshot file=52 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=52 (collected=53) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 153 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [5.8017, 4.2118, 4.4237]
+[WORK] Skewness: [0.8158, 0.2873, -0.4279]
+[bagging_int8] probs=[0.04687, 0.03906, 0.02734] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.03776
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 209 ms (snap_delay=8 ms)
+[WORK] Stats: collected=53 processed=53 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=53 samples=4672 <<<
+[MAIN] Snapshot file=53 done in 2 ms (buffer_pos=4672)
+
+[WORK] === Processing snapshot file=53 (collected=54) ===
+Processing window with 4672 samples...
+[WORK] Feature extraction time: 80 ms
+[WORK] Window integrity: 100% (4672/4672 samples)
+[WORK] Kurtosis: [6.9960, 7.6397, 6.5703]
+[WORK] Skewness: [0.2964, 2.0318, 1.2310]
+[bagging_int8] probs=[0.05078, 0.21875, 0.06250] votes=0 label=0
+[WORK] Inference time: 13 ms
+[WORK] Inference: model=fnn_bagging_int8 label=0 score=0.11068
+[WORK] Window not sent: integrity=100% label=0 ret=0
+[WORK] Total work time: 136 ms (snap_delay=8 ms)
+[WORK] Stats: collected=54 processed=54 skipped=0
+[MAIN] Work submitted, resuming collection...
+
+[MAIN] >>> Header file=54 samples=9000 <<<
+[MAIN] Snapshot file=54 done in 2 ms (buffer_pos=9000)
+
+[WORK] === Processing snapshot file=54 (collected=55) ===
+Processing window with 9000 samples...
+[WORK] Feature extraction time: 145 ms
+[WORK] Window integrity: 100% (9000/9000 samples)
+[WORK] Kurtosis: [24.2175, 22.6364, 21.5437]
+[WORK] Skewness: [3.9796, 3.9760, 3.8590]
+[bagging_int8] probs=[0.96875, 0.96875, 0.93359] votes=3 label=1
+[WORK] Inference time: 12 ms
+[WORK] Inference: model=fnn_bagging_int8 label=1 score=0.95703
+[WORK] >>> VALID: file=54 label=1, backup 9000 samples ready for BLE <<<
+[WORK] BLE submit BUSY: previous window still sending, file=54 skipped
+[WORK] Total work time: 210 ms (snap_delay=8 ms)
+[WORK] Stats: collected=55 processed=55 skipped=0
+[MAIN] Work submitted, resuming collection...

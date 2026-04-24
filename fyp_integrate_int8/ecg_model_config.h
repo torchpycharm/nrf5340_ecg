@@ -1,0 +1,16 @@
+#ifndef ECG_MODEL_CONFIG_H
+#define ECG_MODEL_CONFIG_H
+
+// Project-wide constants for the INT8-only runtime.
+
+#define ECG_MODEL_FEATURE_DIM 6
+#define FEAT_DIM ECG_MODEL_FEATURE_DIM
+
+#define ECG_MODEL_TRAIN_NUM 462
+#define TRAIN_NUM ECG_MODEL_TRAIN_NUM
+
+#define ECG_MODEL_MAX_NODES 200
+#define MAX_NODES ECG_MODEL_MAX_NODES
+
+#endif // ECG_MODEL_CONFIG_H
+

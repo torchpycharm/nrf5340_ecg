@@ -6,7 +6,7 @@
 #include "ecg_buffer.h"
 
 #define UART_SAMPLE_FRAME_TYPE_DATASET 0xA1
-#define UART_SAMPLE_MAX_WINDOW_SAMPLES 9000
+#define UART_SAMPLE_MAX_WINDOW_SAMPLES 12000
 
 typedef struct {
     uint8_t frame_type;
